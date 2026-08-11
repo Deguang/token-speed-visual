@@ -36,7 +36,13 @@ function App() {
           >Leaderboard</button>
         </div>
         <div className="flex items-center gap-gutter">
-          <button className="bg-[#38bdf8] text-black px-4 py-2 rounded-lg font-headline-sm text-headline-sm">Live</button>
+          <div className="bg-[#38bdf8]/10 border border-[#38bdf8]/30 text-[#38bdf8] px-3 py-1.5 rounded-lg font-headline-sm text-headline-sm flex items-center gap-2 shadow-[0_0_10px_rgba(56,189,248,0.2)]">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38bdf8] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#38bdf8]"></span>
+            </span>
+            System Live
+          </div>
         </div>
       </nav>
 
