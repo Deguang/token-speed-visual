@@ -18,66 +18,55 @@ function App() {
 
   return (
     <div className="antialiased min-h-screen flex flex-col relative overflow-x-hidden">
-      {/* TopNavBar */}
-      <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-container-margin py-4 bg-background/80 backdrop-blur-xl border-b border-white/10 hidden md:flex">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center bg-[#0B1120] border border-white/10 shadow-lg">
+      {/* Floating Bespoke Navigation */}
+      <header className="fixed top-0 w-full z-50 px-container-margin py-6 flex justify-between items-center pointer-events-none hidden md:flex">
+        {/* Brand */}
+        <div className="flex items-center gap-3 pointer-events-auto group cursor-pointer">
+          <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center bg-black border border-white/10 shadow-2xl transition-transform group-hover:scale-105">
             <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="tokenSpeed Logo" className="w-full h-full object-cover" />
           </div>
-          <span className="font-display-lg text-[24px] md:text-[32px] font-bold tracking-tighter text-on-surface">token<span className="text-secondary">Speed</span></span>
+          <span className="font-display-lg text-[24px] font-bold tracking-tighter text-on-surface">token<span className="text-secondary opacity-80">Speed</span></span>
         </div>
-        <div className="flex items-center gap-stack-lg">
-          <button 
-            onClick={() => setActiveTab('models')} 
-            className={`font-headline-sm text-headline-sm transition-colors ${activeTab === 'models' ? 'text-secondary border-b-2 border-secondary pb-1 scale-95 duration-100' : 'text-on-primary-container hover:text-secondary-fixed-dim'}`}
-          >Models</button>
-          <button 
-            onClick={() => setActiveTab('research')} 
-            className={`font-headline-sm text-headline-sm transition-colors ${activeTab === 'research' ? 'text-secondary border-b-2 border-secondary pb-1 scale-95 duration-100' : 'text-on-primary-container hover:text-secondary-fixed-dim'}`}
-          >Research</button>
-          <button 
-            onClick={() => setActiveTab('leaderboard')} 
-            className={`font-headline-sm text-headline-sm transition-colors ${activeTab === 'leaderboard' ? 'text-secondary border-b-2 border-secondary pb-1 scale-95 duration-100' : 'text-on-primary-container hover:text-secondary-fixed-dim'}`}
-          >Leaderboard</button>
-        </div>
-        <div className="flex items-center gap-gutter">
-          <div className="bg-[#38bdf8]/10 text-[#38bdf8] px-3 py-1.5 rounded-lg font-headline-sm text-headline-sm flex items-center gap-2">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38bdf8] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#38bdf8]"></span>
+
+        {/* Center Pill Nav */}
+        <nav className="absolute left-1/2 -translate-x-1/2 flex items-center gap-1 p-1.5 bg-black/40 backdrop-blur-3xl border border-white/10 rounded-full shadow-2xl pointer-events-auto">
+          {[
+            { id: 'dashboard', label: 'Telemetry' },
+            { id: 'leaderboard', label: 'Leaderboard' },
+            { id: 'research', label: 'Research' },
+            { id: 'models', label: 'Models' }
+          ].map(tab => (
+            <button 
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-5 py-2 rounded-full font-headline-sm text-headline-sm transition-all duration-300 ${activeTab === tab.id ? 'bg-white/15 text-white shadow-sm' : 'text-white/40 hover:text-white hover:bg-white/5'}`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </nav>
+
+        {/* Right Actions */}
+        <div className="flex items-center gap-4 pointer-events-auto">
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/5 bg-white/5 text-white/50 font-headline-sm text-[13px] backdrop-blur-md">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
             </span>
             System Live
           </div>
-        </div>
-      </nav>
-
-      {/* SideNavBar */}
-      <aside className="fixed left-0 top-16 h-full w-64 flex-col p-stack-md bg-surface-container-lowest/50 backdrop-blur-2xl border-r border-white/5 hidden md:flex z-40">
-        <div className="mb-stack-lg mt-4">
-          <h2 className="font-headline-md text-headline-md text-on-surface">Metrics</h2>
-          <p className="font-body-sm text-body-sm text-on-surface-variant">Real-time technical clarity</p>
-        </div>
-        <button 
-          onClick={() => navigate('byok')}
-          className="bg-secondary text-on-secondary py-2 rounded-lg mb-stack-lg border border-white/10 hover:bg-secondary-fixed-dim transition-colors font-headline-sm text-headline-sm w-full shadow-lg flex justify-center items-center gap-2"
-        >
-          <span className="material-symbols-outlined text-[18px]">add</span> New Simulation
-        </button>
-        <nav className="flex-1 space-y-unit">
-          <button onClick={() => setActiveTab('dashboard')} className={`flex items-center gap-stack-sm p-3 font-body-md text-body-md w-full text-left rounded-lg transition-all duration-300 ${activeTab === 'dashboard' ? 'text-tertiary font-bold bg-tertiary/10' : 'text-on-surface-variant hover:bg-white/5'}`}>
-            <span className="material-symbols-outlined">dashboard</span> 概览
+          <button 
+            onClick={() => navigate('byok')}
+            className="px-5 py-2 bg-white text-black rounded-full font-headline-sm text-[14px] font-semibold hover:bg-white/90 transition-all shadow-[0_0_20px_rgba(255,255,255,0.15)] flex items-center gap-2"
+          >
+            New Simulation
           </button>
-          <button onClick={() => setActiveTab('byok')} className={`flex items-center gap-stack-sm p-3 font-body-md text-body-md w-full text-left rounded-lg transition-all duration-300 ${activeTab === 'byok' ? 'text-tertiary font-bold bg-tertiary/10' : 'text-on-surface-variant hover:bg-white/5'}`}>
-            <span className="material-symbols-outlined">speed</span> BYOK 测速
-          </button>
-        </nav>
-        <div className="mt-auto space-y-unit pt-stack-md border-white/5 mb-16">
-          {/* Settings and Documentation hidden for now */}
         </div>
-      </aside>
+      </header>
 
-      {/* Dynamic Content */}
-      <Suspense fallback={<div className="flex-1 md:ml-64 pt-24 flex items-center justify-center h-full min-h-[50vh]"><div className="font-data-mono-sm text-secondary animate-pulse flex items-center gap-2"><span className="material-symbols-outlined animate-spin">sync</span> Loading interface modules...</div></div>}>
+      {/* Main Content Area - No Sidebar Offset */}
+      <main className="flex-1 w-full max-w-7xl mx-auto pt-24 md:pt-32 pb-32 px-container-margin relative z-10">
+        <Suspense fallback={<div className="flex-1 pt-24 flex items-center justify-center h-full min-h-[50vh]"><div className="font-data-mono-sm text-secondary animate-pulse flex items-center gap-2"><span className="material-symbols-outlined animate-spin">sync</span> Loading interface modules...</div></div>}>
         {activeTab === 'dashboard' && <DashboardScreen navigate={navigate} />}
         {activeTab === 'byok' && <BYOKScreen routePayload={routePayload} />}
         {activeTab === 'research' && <ResearchScreen />}
@@ -105,6 +94,7 @@ function App() {
           </button>
         ))}
       </nav>
+      </main>
 
       {/* Footer */}
       <footer className="w-full py-gutter px-container-margin flex flex-wrap justify-between items-center bg-surface-container-lowest border-t border-white/10 z-50 relative md:block hidden">
