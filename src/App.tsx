@@ -37,6 +37,12 @@ function App() {
           >Leaderboard</button>
         </div>
         <div className="flex items-center gap-gutter">
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.3)] bg-black border border-white/10">
+              <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="tokenSpeed Logo" className="w-full h-full object-cover" />
+            </div>
+            <span className="font-display-md text-display-md text-on-surface tracking-wide">token<span className="text-secondary font-bold">Speed</span></span>
+          </div>
           <div className="bg-[#38bdf8]/10 border border-[#38bdf8]/30 text-[#38bdf8] px-3 py-1.5 rounded-lg font-headline-sm text-headline-sm flex items-center gap-2 shadow-[0_0_10px_rgba(56,189,248,0.2)]">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38bdf8] opacity-75"></span>
@@ -102,8 +108,8 @@ function App() {
       </nav>
 
       {/* Footer */}
-      <footer className="w-full py-gutter px-container-margin flex flex-wrap justify-between items-center bg-surface-container-lowest border-t border-white/10 z-50 relative">
-        <span className="font-data-mono-sm text-data-mono-sm text-on-surface">© 2026 VELOCITY LLM INFRA. ALL RIGHTS RESERVED.</span>
+      <footer className="w-full py-gutter px-container-margin flex flex-wrap justify-between items-center bg-surface-container-lowest border-t border-white/10 z-50 relative md:block hidden">
+        <span className="font-data-mono-sm text-data-mono-sm text-on-surface">© 2026 tokenSpeed. ALL RIGHTS RESERVED.</span>
         <div className="flex gap-gutter font-data-mono-sm text-data-mono-sm text-on-primary-container">
           <a className="hover:text-on-surface" href="#">Methodology</a>
           <a className="hover:text-on-surface" href="#">Privacy</a>
