@@ -1,4 +1,4 @@
-import{n as e,t}from"./index-BnP8y2vW.js";var n=e(),r=t(),i=`Here is a highly optimized Python implementation for a high-performance HTTP router using a Radix Tree. This approach is commonly used in modern web frameworks to achieve sub-millisecond routing times.
+import{n as e,t}from"./index-qyG2GI3_.js";var n=e(),r=t(),i=`Here is a highly optimized Python implementation for a high-performance HTTP router using a Radix Tree. This approach is commonly used in modern web frameworks to achieve sub-millisecond routing times.
 
 \`\`\`python
 class TrieNode:
