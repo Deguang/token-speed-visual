@@ -1,0 +1,43 @@
+name: Automated Real-Time Speed Probe
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Run at the top of every hour
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  probe-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Real-Time Speed Probes
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: node scripts/build-leaderboard.mjs
+
+      - name: Commit real telemetry data
+        run: |
+          git config --global user.name 'tokenSpeed-Telemetry-Bot'
+          git config --global user.email 'bot@tokenspeed.test'
+          # Only commit if leaderboard.json changed
+          if ! git diff --quiet public/data/leaderboard.json; then
+            git add public/data/leaderboard.json
+            git commit -m "chore(telemetry): auto-update real inference speeds [skip ci]"
+            git push
+          else
+            echo "No changes in leaderboard data."
+          fi
