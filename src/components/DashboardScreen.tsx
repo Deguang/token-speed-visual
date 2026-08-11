@@ -88,7 +88,53 @@ export function DashboardScreen({ navigate }: { navigate?: (tab: string, payload
         <p className="font-body-md text-body-md text-on-surface-variant mt-2">实时大语言模型生成速度监控与对比分析系统 (Live Metrics)</p>
       </header>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+      {/* High-Value Global Throughput Chart */}
+      <div className="glass-card rounded-2xl p-card-padding relative overflow-hidden border-secondary/30 mt-4 group">
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent pointer-events-none z-0"></div>
+        <div className="flex flex-col md:flex-row justify-between items-start mb-8 relative z-10 gap-4">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
+              </span>
+              <h2 className="font-headline-md text-headline-md text-on-surface">Global Aggregated Throughput</h2>
+            </div>
+            <p className="font-data-mono-sm text-data-mono-sm text-on-surface-variant">Measuring total tokens/s across all monitored global endpoints</p>
+          </div>
+          <div className="text-left md:text-right">
+            <div className="font-display-lg text-[40px] md:text-[56px] leading-none text-white tracking-tighter drop-shadow-[0_0_15px_rgba(56,189,248,0.3)]">1,204.5</div>
+            <div className="font-data-mono-sm text-secondary uppercase tracking-widest mt-1">Avg Tokens / Sec</div>
+          </div>
+        </div>
+        
+        {/* SVG Sparkline/Area Chart */}
+        <div className="w-full h-32 md:h-48 mt-4 relative z-10">
+          <svg viewBox="0 0 1000 200" className="w-full h-full" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.25" />
+                <stop offset="100%" stopColor="#38bdf8" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            {/* Grid lines */}
+            <path d="M0,50 L1000,50 M0,100 L1000,100 M0,150 L1000,150" stroke="rgba(255,255,255,0.05)" strokeWidth="1" strokeDasharray="4 4" />
+            <path d="M200,0 L200,200 M400,0 L400,200 M600,0 L600,200 M800,0 L800,200" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+            
+            {/* Data Line */}
+            <path d="M0,150 C100,140 200,160 300,120 C400,80 500,130 600,90 C700,50 800,110 900,60 L1000,40" fill="none" stroke="#38bdf8" strokeWidth="3" className="drop-shadow-[0_0_8px_rgba(56,189,248,0.6)] group-hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.8)] transition-all duration-700" />
+            
+            {/* Area */}
+            <path d="M0,150 C100,140 200,160 300,120 C400,80 500,130 600,90 C700,50 800,110 900,60 L1000,40 L1000,200 L0,200 Z" fill="url(#chartGradient)" className="opacity-80 group-hover:opacity-100 transition-opacity duration-700" />
+            
+            {/* Blinking Live Dot */}
+            <circle cx="1000" cy="40" r="5" fill="#ffffff" className="drop-shadow-[0_0_10px_rgba(255,255,255,1)]" />
+            <circle cx="1000" cy="40" r="12" fill="#38bdf8" fillOpacity="0.4" className="animate-ping" />
+          </svg>
+        </div>
+      </div>
+
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mt-2">
         <div className="glass-card rounded-xl p-card-padding flex flex-col gap-stack-sm relative overflow-hidden active-glow">
           <div className="flex justify-between items-center">
             <span className="font-headline-sm text-headline-sm text-on-surface">GPT-5 Omni</span>
