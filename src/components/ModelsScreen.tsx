@@ -74,24 +74,26 @@ export function ModelsScreen({ navigate }: { navigate?: (tab: string, payload?: 
           {filteredModels.map((model, idx) => (
             <div key={model.id} className={`glass-card rounded-xl p-card-padding flex flex-col gap-stack-md hover:border-secondary/50 transition-colors group relative overflow-hidden animate-fade-in stagger-${Math.min(idx + 1, 6)} ${model.name.includes('Claude') ? 'active-glow border-secondary/30' : ''}`}>
               <div className={`absolute inset-0 bg-gradient-to-br from-${model.color}-500/5 to-transparent ${model.name.includes('Claude') ? '' : 'opacity-0 group-hover:opacity-100 transition-opacity'}`}></div>
-              <div className="flex justify-between items-start z-10">
+              <div className="flex flex-col gap-3 z-10">
                 <div>
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">{model.name}</h3>
-                    {model.name.includes('Claude') && <span className="flex h-2 w-2 rounded-full bg-secondary animate-pulse"></span>}
+                  <div className="flex items-center justify-between gap-2">
+                    <h3 className="font-headline-md text-headline-sm md:text-headline-md text-on-surface group-hover:text-secondary transition-colors line-clamp-1" title={model.name}>{model.name}</h3>
+                    {model.name.includes('Claude') && <span className="flex-shrink-0 flex h-2 w-2 rounded-full bg-secondary animate-pulse"></span>}
                   </div>
                   <span className="font-body-sm text-body-sm text-on-surface-variant">{model.provider}</span>
                 </div>
-                <span className={`bg-${model.color}-500/10 text-${model.color}-400 border border-${model.color}-500/20 px-2 py-1 rounded font-data-mono-sm text-data-mono-sm uppercase tracking-wider`}>{model.modality}</span>
+                <div className="self-start">
+                  <span className={`bg-${model.color}-500/10 text-${model.color}-400 border border-${model.color}-500/20 px-2 py-1 rounded font-data-mono-sm text-[10px] md:text-xs uppercase tracking-wider max-w-full truncate block`} title={model.modality}>{model.modality}</span>
+                </div>
               </div>
-              <div className="grid grid-cols-2 gap-stack-sm z-10 mt-auto">
+              <div className="grid grid-cols-2 gap-stack-sm z-10 mt-auto pt-4">
                 <div className="flex flex-col">
-                  <span className="font-data-mono-sm text-data-mono-sm text-on-surface-variant uppercase">Context</span>
-                  <span className={`font-data-mono-lg text-data-mono-lg text-on-surface ${model.name.includes('Claude') ? 'text-secondary' : ''}`}>{model.context}</span>
+                  <span className="font-data-mono-sm text-[10px] md:text-xs text-on-surface-variant uppercase">Context</span>
+                  <span className={`font-data-mono-sm text-sm md:text-base text-on-surface ${model.name.includes('Claude') ? 'text-secondary' : ''}`}>{model.context}</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-data-mono-sm text-data-mono-sm text-on-surface-variant uppercase">Params</span>
-                  <span className="font-data-mono-lg text-data-mono-lg text-on-surface">{model.params}</span>
+                  <span className="font-data-mono-sm text-[10px] md:text-xs text-on-surface-variant uppercase">Params</span>
+                  <span className="font-data-mono-sm text-sm md:text-base text-on-surface">{model.params}</span>
                 </div>
                 <div className="flex justify-between items-center mt-stack-md pt-stack-sm border-t border-white/5 col-span-2">
                   <span className="font-data-mono-sm text-data-mono-sm text-on-surface-variant px-2 py-1 bg-surface-container rounded">{model.release}</span>
