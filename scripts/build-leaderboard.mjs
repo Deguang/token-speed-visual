@@ -9,13 +9,12 @@ const __dirname = path.dirname(__filename);
 const apiKey = process.env.OPENROUTER_API_KEY;
 
 const modelsList = [
-  { id: "openai/gpt-4o", name: "GPT-4o", icon: "smart_toy", color: "emerald", cost: "$2.50" },
-  { id: "anthropic/claude-3.5-sonnet", name: "Claude 3.5 Sonnet", icon: "psychology", color: "amber", cost: "$3.00" },
-  { id: "meta-llama/llama-3.1-70b-instruct", name: "Llama 3.1 70B", icon: "hub", color: "blue", cost: "$0.40" },
-  { id: "google/gemini-1.5-flash", name: "Gemini 1.5 Flash", icon: "memory", color: "pink", cost: "$0.10" },
-  { id: "google/gemini-1.5-pro", name: "Gemini 1.5 Pro", icon: "memory", color: "pink", cost: "$3.50" },
-  { id: "mistralai/mistral-large", name: "Mistral Large", icon: "storm", color: "orange", cost: "$0.80" },
-  { id: "qwen/qwen-2-72b-instruct", name: "Qwen 2 72B", icon: "language", color: "cyan", cost: "$0.20" }
+  { id: "meta-llama/llama-3.1-8b-instruct:free", name: "Llama 3.1 8B (Free)", icon: "hub", color: "blue", cost: "$0.00" },
+  { id: "qwen/qwen-2-72b-instruct:free", name: "Qwen 2 72B (Free)", icon: "language", color: "cyan", cost: "$0.00" },
+  { id: "google/gemma-2-9b-it:free", name: "Gemma 2 9B (Free)", icon: "memory", color: "pink", cost: "$0.00" },
+  { id: "mistralai/mistral-7b-instruct:free", name: "Mistral 7B (Free)", icon: "storm", color: "orange", cost: "$0.00" },
+  { id: "microsoft/phi-3-mini-128k-instruct:free", name: "Phi-3 Mini (Free)", icon: "window", color: "indigo", cost: "$0.00" },
+  { id: "huggingfaceh4/zephyr-7b-beta:free", name: "Zephyr 7B (Free)", icon: "air", color: "teal", cost: "$0.00" }
 ];
 
 const trends = ["trending_up", "trending_down", "horizontal_rule"];
