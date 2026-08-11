@@ -52,7 +52,12 @@ function App() {
           <h2 className="font-headline-md text-headline-md text-on-surface">Metrics</h2>
           <p className="font-body-sm text-body-sm text-on-surface-variant">Real-time technical clarity</p>
         </div>
-        <button className="bg-surface-variant text-on-surface py-2 rounded-lg mb-stack-lg border border-white/10 hover:bg-white/5 font-body-md text-body-md w-full">New Simulation</button>
+        <button 
+          onClick={() => navigate('byok')}
+          className="bg-secondary text-on-secondary py-2 rounded-lg mb-stack-lg border border-white/10 hover:bg-secondary-fixed-dim transition-colors font-headline-sm text-headline-sm w-full shadow-[0_0_15px_rgba(56,189,248,0.2)] flex justify-center items-center gap-2"
+        >
+          <span className="material-symbols-outlined text-[18px]">add</span> New Simulation
+        </button>
         <nav className="flex-1 space-y-unit">
           <button onClick={() => setActiveTab('dashboard')} className={`flex items-center gap-stack-sm p-3 font-body-md text-body-md w-full text-left rounded-lg transition-all duration-300 ${activeTab === 'dashboard' ? 'text-tertiary font-bold bg-tertiary/10' : 'text-on-surface-variant hover:bg-white/5'}`}>
             <span className="material-symbols-outlined">dashboard</span> 概览
