@@ -20,6 +20,7 @@ export function BYOKScreen() {
   const [speed, setSpeed] = useState(60);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
+  const [provider, setProvider] = useState("OpenRouter (Aggregator)");
   const [displayedText, setDisplayedText] = useState("");
   const textIndexRef = useRef(0);
   const streamContainerRef = useRef<HTMLDivElement>(null);
@@ -61,11 +62,16 @@ export function BYOKScreen() {
 </header>
 <section className="glass-card rounded-xl p-card-padding border-secondary/30 relative overflow-hidden">
 <div className="absolute inset-0 bg-gradient-to-r from-secondary/5 to-transparent"></div>
-<div className="relative z-10 flex flex-col md:flex-row gap-gutter">
-<div className="flex-1 space-y-4">
+<div className="relative z-10 flex flex-col gap-4">
+<div className="flex flex-col md:flex-row gap-gutter items-start">
+<div className="flex-1 w-full space-y-4">
 <div>
 <label className="block font-headline-sm text-headline-sm text-on-surface mb-2">API Provider / Inference Node</label>
-<select className="w-full bg-surface-container border border-outline-variant rounded-lg px-4 py-3 text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none appearance-none">
+<select 
+  className="w-full bg-surface-container border border-outline-variant rounded-lg px-4 py-3 text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none appearance-none"
+  value={provider}
+  onChange={(e) => setProvider(e.target.value)}
+>
 <option>OpenRouter (Aggregator)</option>
 <option>OpenAI (Enterprise)</option>
 <option>Anthropic (Claude API)</option>
@@ -75,25 +81,33 @@ export function BYOKScreen() {
 <option>xAI (Grok API)</option>
 <option>Together AI</option>
 <option>Mistral La Plateforme</option>
+<option>Custom API Endpoint</option>
 </select>
 </div>
-<div>
+{provider === 'Custom API Endpoint' && (
+  <div className="animate-fade-in">
+    <label className="block font-headline-sm text-headline-sm text-on-surface mb-2">Custom Base URL</label>
+    <input className="w-full bg-surface-container border border-outline-variant rounded-lg px-4 py-3 text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none placeholder:text-on-surface-variant/50" placeholder="https://api.yourdomain.com/v1" type="text"/>
+  </div>
+)}
+<div className="w-full">
 <label className="block font-headline-sm text-headline-sm text-on-surface mb-2">API Key</label>
 <div className="relative">
 <input className="w-full bg-surface-container border border-outline-variant rounded-lg pl-4 pr-10 py-3 text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none placeholder:text-on-surface-variant/50" placeholder="sk-..." type="password" value="sk-fake-key-for-demo-purposes" readOnly/>
 <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant cursor-pointer">visibility_off</span>
 </div>
-<p className="font-body-sm text-body-sm text-on-surface-variant mt-1">密钥仅保存在本地浏览器中，不会上传至我们的服务器。</p>
 </div>
 </div>
-<div className="w-full md:w-1/3 flex flex-col justify-end">
+<div className="w-full md:w-1/3 flex flex-col h-full justify-end pt-8">
 <button 
-  className="bg-secondary text-on-secondary px-6 py-3 rounded-lg font-headline-sm text-headline-sm w-full hover:bg-secondary-fixed-dim transition-colors flex items-center justify-center gap-2"
+  className="bg-secondary text-on-secondary px-6 py-3 rounded-lg font-headline-sm text-headline-sm w-full hover:bg-secondary-fixed-dim transition-colors flex items-center justify-center gap-2 mt-auto"
   onClick={handleStartTest}
 >
 <span className="material-symbols-outlined">rocket_launch</span> 开始全链路测速
 </button>
 </div>
+</div>
+<p className="font-body-sm text-body-sm text-on-surface-variant mt-4 pt-4 border-t border-white/5 flex items-center gap-1"><span className="material-symbols-outlined text-[16px]">lock</span> 密钥仅保存在本地浏览器中，不会上传至我们的服务器。</p>
 </div>
 </section>
       <section className="glass-card rounded-xl p-card-padding flex items-center gap-gutter flex-wrap">
