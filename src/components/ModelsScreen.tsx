@@ -46,7 +46,7 @@ export function ModelsScreen({ navigate }: { navigate?: (tab: string, payload?: 
   }, []);
 
   return (
-    <main className="flex-1 md:ml-64 pt-24 px-container-margin md:p-stack-lg md:pt-24 max-w-7xl mx-auto w-full">
+    <div className="flex flex-col gap-stack-lg w-full animate-fade-in">
       <div className="mb-stack-lg">
         <h1 className="font-display-lg text-display-lg text-on-surface mb-stack-sm">Model Library (Updated Aug 2026)</h1>
         <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl mb-stack-md">Explore and compare specifications across major Large Language Models available in 2026.</p>
@@ -112,6 +112,6 @@ export function ModelsScreen({ navigate }: { navigate?: (tab: string, payload?: 
           ))}
         </div>
       )}
-    </main>
+    </div>
   );
 }
