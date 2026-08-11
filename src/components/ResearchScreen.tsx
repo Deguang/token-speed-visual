@@ -36,7 +36,7 @@ export function ResearchScreen() {
   const regular = articles.slice(1);
 
   return (
-    <main className="flex-1 md:ml-64 pt-24 p-container-margin md:p-stack-lg max-w-7xl mx-auto w-full">
+    <main className="flex-1 md:ml-64 pt-24 px-container-margin pb-container-margin md:p-stack-lg md:pt-24 max-w-7xl mx-auto w-full">
       <header className="mb-stack-lg">
         <h1 className="font-display-lg text-display-lg text-gradient mb-2">Research & Trends (Powered by AIHOT)</h1>
         <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl">Daily AI news, model releases, and research updates fetched directly from AIHOT.</p>
