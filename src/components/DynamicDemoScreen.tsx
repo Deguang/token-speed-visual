@@ -49,7 +49,7 @@ export function DynamicDemoScreen() {
   }, [speed, isPlaying]);
 
   return (
-    <main className="flex-1 md:ml-64 pt-24 px-container-margin pb-container-margin flex flex-col gap-stack-lg">
+    <main className="flex-1 md:ml-64 pt-24 px-container-margin pb-container-margin flex flex-col gap-stack-lg max-w-7xl mx-auto w-full">
 <header>
 <h1 className="font-display-lg text-display-lg md:text-display-lg text-headline-md-mobile text-on-surface">Token Velocity Visualizer (Dynamic Demo)</h1>
 <p className="font-body-md text-body-md text-on-surface-variant mt-2">实时大语言模型生成速度监控与对比分析系统</p>

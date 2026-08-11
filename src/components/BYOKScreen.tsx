@@ -51,7 +51,7 @@ export function BYOKScreen() {
   };
 
   return (
-    <main className="flex-1 md:ml-64 pt-24 px-container-margin pb-container-margin flex flex-col gap-stack-lg">
+    <main className="flex-1 md:ml-64 pt-24 px-container-margin pb-container-margin flex flex-col gap-stack-lg max-w-7xl mx-auto w-full">
 <header>
 <div className="flex items-center gap-2 mb-2">
 <span className="material-symbols-outlined text-secondary">vpn_key</span>
