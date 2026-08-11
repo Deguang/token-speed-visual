@@ -41,10 +41,10 @@ export function DashboardScreen() {
   const [displayedText, setDisplayedText] = useState("");
   
   const [logs, setLogs] = useState([
-    { id: 1, timestamp: "2026-08-11 14:30:00", model: "GPT-4o", ttft: "240ms", tps: "85.4", status: "Completed", color: "emerald" },
-    { id: 2, timestamp: "2026-08-11 14:28:15", model: "Llama 3.1 70B (Groq)", ttft: "180ms", tps: "124.8", status: "Completed", color: "emerald" },
-    { id: 3, timestamp: "2026-08-11 14:25:00", model: "Claude 3.5 Sonnet", ttft: "265ms", tps: "72.1", status: "Completed", color: "emerald" },
-    { id: 4, timestamp: "2026-08-11 14:20:42", model: "Gemini 1.5 Pro", ttft: "410ms", tps: "68.3", status: "Completed", color: "emerald" }
+    { id: 1, timestamp: "2026-08-11 14:30:00", model: "GPT-5 Omni", ttft: "120ms", tps: "210.5", status: "Completed", color: "emerald" },
+    { id: 2, timestamp: "2026-08-11 14:28:15", model: "Llama 4 100B (Groq)", ttft: "45ms", tps: "850.0", status: "Completed", color: "emerald" },
+    { id: 3, timestamp: "2026-08-11 14:25:00", model: "Claude Opus 5", ttft: "140ms", tps: "185.0", status: "Completed", color: "emerald" },
+    { id: 4, timestamp: "2026-08-11 14:20:42", model: "Gemini 3.6 Pro", ttft: "180ms", tps: "195.4", status: "Completed", color: "emerald" }
   ]);
   
   const textIndexRef = useRef(0);
@@ -91,40 +91,40 @@ export function DashboardScreen() {
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
         <div className="glass-card rounded-xl p-card-padding flex flex-col gap-stack-sm relative overflow-hidden active-glow">
           <div className="flex justify-between items-center">
-            <span className="font-headline-sm text-headline-sm text-on-surface">GPT-4o</span>
+            <span className="font-headline-sm text-headline-sm text-on-surface">GPT-5 Omni</span>
             <span className="px-2 py-1 bg-emerald-500/10 text-emerald-400 font-data-mono-sm text-data-mono-sm rounded pulse-gpt">ACTIVE</span>
           </div>
-          <div className="font-data-mono-lg text-data-mono-lg text-secondary">85.4 t/s</div>
+          <div className="font-data-mono-lg text-data-mono-lg text-secondary">210.5 t/s</div>
           <div className="w-full h-1 bg-surface-container-high rounded-full overflow-hidden mt-2">
             <div className="h-full bg-emerald-500 w-[70%]"></div>
           </div>
         </div>
         <div className="glass-card rounded-xl p-card-padding flex flex-col gap-stack-sm relative overflow-hidden">
           <div className="flex justify-between items-center">
-            <span className="font-headline-sm text-headline-sm text-on-surface">Claude 3.5 Sonnet</span>
+            <span className="font-headline-sm text-headline-sm text-on-surface">Claude Opus 5</span>
             <span className="px-2 py-1 bg-amber-500/10 text-amber-400 font-data-mono-sm text-data-mono-sm rounded">IDLE</span>
           </div>
-          <div className="font-data-mono-lg text-data-mono-lg text-on-surface-variant">72.1 t/s</div>
+          <div className="font-data-mono-lg text-data-mono-lg text-on-surface-variant">185.0 t/s</div>
           <div className="w-full h-1 bg-surface-container-high rounded-full overflow-hidden mt-2">
             <div className="h-full bg-amber-500 w-[60%]"></div>
           </div>
         </div>
         <div className="glass-card rounded-xl p-card-padding flex flex-col gap-stack-sm relative overflow-hidden">
           <div className="flex justify-between items-center">
-            <span className="font-headline-sm text-headline-sm text-on-surface">Llama 3.1 70B</span>
+            <span className="font-headline-sm text-headline-sm text-on-surface">Llama 4 100B</span>
             <span className="px-2 py-1 bg-blue-500/10 text-blue-400 font-data-mono-sm text-data-mono-sm rounded">IDLE</span>
           </div>
-          <div className="font-data-mono-lg text-data-mono-lg text-on-surface-variant">124.8 t/s</div>
+          <div className="font-data-mono-lg text-data-mono-lg text-on-surface-variant">850.0 t/s</div>
           <div className="w-full h-1 bg-surface-container-high rounded-full overflow-hidden mt-2">
             <div className="h-full bg-blue-500 w-[95%]"></div>
           </div>
         </div>
         <div className="glass-card rounded-xl p-card-padding flex flex-col gap-stack-sm relative overflow-hidden">
           <div className="flex justify-between items-center">
-            <span className="font-headline-sm text-headline-sm text-on-surface">Gemini 1.5 Pro</span>
+            <span className="font-headline-sm text-headline-sm text-on-surface">Gemini 3.6 Pro</span>
             <span className="px-2 py-1 bg-purple-500/10 text-purple-400 font-data-mono-sm text-data-mono-sm rounded">IDLE</span>
           </div>
-          <div className="font-data-mono-lg text-data-mono-lg text-on-surface-variant">68.3 t/s</div>
+          <div className="font-data-mono-lg text-data-mono-lg text-on-surface-variant">195.4 t/s</div>
           <div className="w-full h-1 bg-surface-container-high rounded-full overflow-hidden mt-2">
             <div className="h-full bg-purple-500 w-[55%]"></div>
           </div>
