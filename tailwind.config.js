@@ -56,12 +56,7 @@ export default {
         "on-tertiary-container": "#009365",
         "tertiary-fixed": "#6ffbbe"
       },
-      "borderRadius": {
-        "DEFAULT": "0.125rem",
-        "lg": "0.25rem",
-        "xl": "0.5rem",
-        "full": "0.75rem"
-      },
+
       "spacing": {
         "stack-sm": "8px",
         "unit": "4px",
