@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/build-models.mjs && node scripts/build-data.mjs && tsc -b && vite build",
+    "build": "node scripts/build-models.mjs && node scripts/build-leaderboard.mjs && node scripts/build-data.mjs && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
