@@ -14,6 +14,12 @@ interface ModelInfo {
 export function ModelsScreen() {
   const [models, setModels] = useState<ModelInfo[]>([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredModels = models.filter(m => 
+    m.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    m.provider.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   useEffect(() => {
     fetch(import.meta.env.BASE_URL + 'data/models.json')
@@ -36,7 +42,13 @@ export function ModelsScreen() {
         <div className="flex flex-col md:flex-row gap-stack-md bg-surface-container/50 p-stack-sm rounded-lg border border-white/5 backdrop-blur-sm">
           <div className="relative flex-1">
             <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-            <input className="w-full bg-surface-container border border-outline-variant rounded pl-10 pr-4 py-2 text-on-surface placeholder:text-on-surface-variant focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none transition-colors" placeholder="Search models (e.g. GPT-4o, Claude 3.5)" type="text"/>
+            <input 
+              className="w-full bg-surface-container border border-outline-variant rounded pl-10 pr-4 py-2 text-on-surface placeholder:text-on-surface-variant focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none transition-colors" 
+              placeholder="Search models (e.g. GPT-4o, Claude 3.5)" 
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
           </div>
         </div>
       </div>
@@ -45,7 +57,10 @@ export function ModelsScreen() {
         <div className="text-on-surface-variant font-data-mono-sm">Loading models data...</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-stack-md">
-          {models.map((model, idx) => (
+          {filteredModels.length === 0 && !loading && (
+            <div className="text-on-surface-variant col-span-3 text-center py-8">No models found matching "{searchQuery}"</div>
+          )}
+          {filteredModels.map((model, idx) => (
             <div key={model.id} className={`glass-card rounded-xl p-card-padding flex flex-col gap-stack-md hover:border-secondary/50 transition-colors group relative overflow-hidden animate-fade-in stagger-${Math.min(idx + 1, 6)} ${model.name.includes('Claude') ? 'active-glow border-secondary/30' : ''}`}>
               <div className={`absolute inset-0 bg-gradient-to-br from-${model.color}-500/5 to-transparent ${model.name.includes('Claude') ? '' : 'opacity-0 group-hover:opacity-100 transition-opacity'}`}></div>
               <div className="flex justify-between items-start z-10">

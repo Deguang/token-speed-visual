@@ -40,6 +40,13 @@ export function DashboardScreen() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [displayedText, setDisplayedText] = useState("");
   
+  const [logs, setLogs] = useState([
+    { id: 1, timestamp: "2026-08-11 14:30:00", model: "GPT-4o", ttft: "240ms", tps: "85.4", status: "Completed", color: "emerald" },
+    { id: 2, timestamp: "2026-08-11 14:28:15", model: "Llama 3.1 70B (Groq)", ttft: "180ms", tps: "124.8", status: "Completed", color: "emerald" },
+    { id: 3, timestamp: "2026-08-11 14:25:00", model: "Claude 3.5 Sonnet", ttft: "265ms", tps: "72.1", status: "Completed", color: "emerald" },
+    { id: 4, timestamp: "2026-08-11 14:20:42", model: "Gemini 1.5 Pro", ttft: "410ms", tps: "68.3", status: "Completed", color: "emerald" }
+  ]);
+  
   const textIndexRef = useRef(0);
   const streamContainerRef = useRef<HTMLDivElement>(null);
 
@@ -52,6 +59,18 @@ export function DashboardScreen() {
       if (textIndexRef.current > realSampleText.length) {
         textIndexRef.current = 0;
         setDisplayedText("");
+        
+        // Add a new dynamic log entry when simulation finishes
+        const newLog = {
+          id: Date.now(),
+          timestamp: new Date().toISOString().replace('T', ' ').substring(0, 19),
+          model: "Simulated Model (Local)",
+          ttft: Math.floor(Math.random() * 200 + 100) + "ms",
+          tps: speed.toFixed(1),
+          status: "Completed",
+          color: "emerald"
+        };
+        setLogs(prev => [newLog, ...prev].slice(0, 8)); // Keep last 8
       } else {
         setDisplayedText(realSampleText.substring(0, textIndexRef.current));
       }
@@ -161,34 +180,15 @@ export function DashboardScreen() {
               </tr>
             </thead>
             <tbody className="font-data-mono-sm text-data-mono-sm text-on-surface">
-              <tr className="hover:bg-white/5 transition-colors">
-                <td className="p-4 border-b border-white/5">2026-08-11 14:30:00</td>
-                <td className="p-4 border-b border-white/5">GPT-4o</td>
-                <td className="p-4 border-b border-white/5">240ms</td>
-                <td className="p-4 border-b border-white/5 text-secondary">85.4</td>
-                <td className="p-4 border-b border-white/5"><span className="text-emerald-400">Completed</span></td>
-              </tr>
-              <tr className="hover:bg-white/5 transition-colors">
-                <td className="p-4 border-b border-white/5">2026-08-11 14:28:15</td>
-                <td className="p-4 border-b border-white/5">Llama 3.1 70B (Groq)</td>
-                <td className="p-4 border-b border-white/5">180ms</td>
-                <td className="p-4 border-b border-white/5 text-secondary">124.8</td>
-                <td className="p-4 border-b border-white/5"><span className="text-emerald-400">Completed</span></td>
-              </tr>
-              <tr className="hover:bg-white/5 transition-colors">
-                <td className="p-4 border-b border-white/5">2026-08-11 14:25:00</td>
-                <td className="p-4 border-b border-white/5">Claude 3.5 Sonnet</td>
-                <td className="p-4 border-b border-white/5">265ms</td>
-                <td className="p-4 border-b border-white/5 text-secondary">72.1</td>
-                <td className="p-4 border-b border-white/5"><span className="text-emerald-400">Completed</span></td>
-              </tr>
-              <tr className="hover:bg-white/5 transition-colors">
-                <td className="p-4 border-b border-white/5">2026-08-11 14:20:42</td>
-                <td className="p-4 border-b border-white/5">Gemini 1.5 Pro</td>
-                <td className="p-4 border-b border-white/5">410ms</td>
-                <td className="p-4 border-b border-white/5 text-secondary">68.3</td>
-                <td className="p-4 border-b border-white/5"><span className="text-emerald-400">Completed</span></td>
-              </tr>
+              {logs.map((log, idx) => (
+                <tr key={log.id} className={`hover:bg-white/5 transition-colors animate-fade-in stagger-${Math.min(idx + 1, 6)}`}>
+                  <td className="p-4 border-b border-white/5">{log.timestamp}</td>
+                  <td className="p-4 border-b border-white/5">{log.model}</td>
+                  <td className="p-4 border-b border-white/5">{log.ttft}</td>
+                  <td className="p-4 border-b border-white/5 text-secondary">{log.tps}</td>
+                  <td className="p-4 border-b border-white/5"><span className={`text-${log.color}-400`}>{log.status}</span></td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
