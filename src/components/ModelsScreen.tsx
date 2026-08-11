@@ -45,8 +45,8 @@ export function ModelsScreen() {
         <div className="text-on-surface-variant font-data-mono-sm">Loading models data...</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-stack-md">
-          {models.map(model => (
-            <div key={model.id} className={`glass-card rounded-xl p-card-padding flex flex-col gap-stack-md hover:border-secondary/50 transition-colors group relative overflow-hidden ${model.name.includes('Claude') ? 'active-glow border-secondary/30' : ''}`}>
+          {models.map((model, idx) => (
+            <div key={model.id} className={`glass-card rounded-xl p-card-padding flex flex-col gap-stack-md hover:border-secondary/50 transition-colors group relative overflow-hidden animate-fade-in stagger-${Math.min(idx + 1, 6)} ${model.name.includes('Claude') ? 'active-glow border-secondary/30' : ''}`}>
               <div className={`absolute inset-0 bg-gradient-to-br from-${model.color}-500/5 to-transparent ${model.name.includes('Claude') ? '' : 'opacity-0 group-hover:opacity-100 transition-opacity'}`}></div>
               <div className="flex justify-between items-start z-10">
                 <div>

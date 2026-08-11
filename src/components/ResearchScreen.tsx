@@ -47,7 +47,7 @@ export function ResearchScreen() {
       ) : (
         <>
           {featured && (
-            <section className="mb-stack-lg">
+            <section className="mb-stack-lg animate-fade-in">
               <div 
                 className="glass-panel rounded-xl overflow-hidden flex flex-col md:flex-row group glow-hover transition-all duration-300 cursor-pointer"
                 onClick={() => window.open(featured.links.original, '_blank')}
@@ -75,10 +75,10 @@ export function ResearchScreen() {
           )}
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-stack-lg">
-            {regular.map((article) => (
+            {regular.map((article, idx) => (
               <article 
                 key={article.id} 
-                className="glass-panel rounded-xl overflow-hidden flex flex-col group glow-hover transition-all duration-300 cursor-pointer"
+                className={`glass-panel rounded-xl overflow-hidden flex flex-col group glow-hover transition-all duration-300 cursor-pointer animate-fade-in stagger-${Math.min(idx + 1, 6)}`}
                 onClick={() => window.open(article.links.original, '_blank')}
               >
                 <div className="p-card-padding flex-1 flex flex-col">

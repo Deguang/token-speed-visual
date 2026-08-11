@@ -4,34 +4,117 @@
 
 @layer base {
   body {
-    background-color: #0f172a;
+    background-color: #051424; /* Theme background */
     color: #d4e4fa;
+    /* Premium dark noise/gradient background */
+    background-image: radial-gradient(circle at top right, rgba(0, 166, 224, 0.05), transparent 40%),
+                      radial-gradient(circle at bottom left, rgba(78, 222, 163, 0.05), transparent 40%);
+    background-attachment: fixed;
+  }
+  
+  /* Custom modern scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
   }
 }
 
 @layer components {
-  .glass-card {
-    background: rgba(30, 41, 59, 0.5);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  /* Ultra-refined Glass Morphism */
+  .glass-card, .glass-panel {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(13, 28, 45, 0.4) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .active-glow {
-    box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
-    border-color: rgba(56, 189, 248, 0.3);
+  
+  .glass-card:hover, .glass-panel:hover {
+    transform: translateY(-2px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
-  .pulse-gpt { box-shadow: 0 0 10px rgba(16, 185, 129, 0.3); }
-  .pulse-claude { box-shadow: 0 0 10px rgba(245, 158, 11, 0.3); }
-  .pulse-llama { box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
-  .pulse-gemini { box-shadow: 0 0 10px rgba(168, 85, 247, 0.3); }
 
+  /* Micro-interactions & Glows */
+  .active-glow {
+    box-shadow: 0 0 20px rgba(123, 208, 255, 0.15), inset 0 0 12px rgba(123, 208, 255, 0.05);
+    border-color: rgba(123, 208, 255, 0.4);
+  }
+  
+  .glow-pulse {
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .pulse-gpt { box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
+  .pulse-claude { box-shadow: 0 0 15px rgba(245, 158, 11, 0.4); }
+  .pulse-llama { box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }
+  .pulse-gemini { box-shadow: 0 0 15px rgba(168, 85, 247, 0.4); }
+
+  /* Token Stream Terminal Effect */
+  .streaming-text {
+    position: relative;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  }
   .streaming-text::after {
     content: '█';
     animation: blink 1s step-end infinite;
+    color: var(--tw-colors-secondary, #7bd0ff);
+    margin-left: 2px;
+    opacity: 0.8;
+  }
+  
+  /* Text Gradients */
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right, #ffffff, #7bd0ff);
   }
 }
 
+/* Animations */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(78, 222, 163, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(78, 222, 163, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(78, 222, 163, 0); }
+}
+
+/* Enter Animations for Lists/Cards */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered animation utility using child index (up to 10 for simplicity) */
+.stagger-1 { animation-delay: 50ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 150ms; }
+.stagger-4 { animation-delay: 200ms; }
+.stagger-5 { animation-delay: 250ms; }
+.stagger-6 { animation-delay: 300ms; }

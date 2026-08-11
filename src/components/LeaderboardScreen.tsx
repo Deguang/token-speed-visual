@@ -101,8 +101,8 @@ export function LeaderboardScreen() {
                 {loading ? (
                   <tr><td colSpan={7} className="py-4 px-6 text-center text-on-surface-variant font-data-mono-sm">Loading dynamic leaderboard data...</td></tr>
                 ) : (
-                  data.map((row) => (
-                    <tr key={row.id} className="hover:bg-surface-container-highest/30 transition-colors group">
+                  data.map((row, idx) => (
+                    <tr key={row.id} className={`hover:bg-surface-container-highest/30 transition-colors group animate-fade-in stagger-${Math.min(idx + 1, 6)}`}>
                       <td className="py-4 px-6">
                         <div className="flex items-center gap-2">
                           <span className={`font-data-mono-lg text-data-mono-lg ${row.rank === 1 ? 'text-secondary' : 'text-on-surface'}`}>0{row.rank}</span>
