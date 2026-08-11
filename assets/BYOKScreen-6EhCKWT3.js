@@ -1,4 +1,4 @@
-import{n as e,t}from"./index-CN--4zl4.js";var n=e(),r=t(),i=`**Analysis of Token Generation Speed in High-Load Scenarios**
+import{n as e,t}from"./index-DEnlFZiv.js";var n=e(),r=t(),i=`**Analysis of Token Generation Speed in High-Load Scenarios**
 When benchmarking BYOK (Bring Your Own Key) inference nodes, throughput often bottlenecks at the KV-cache management layer rather than sheer compute. In a highly concurrent environment, continuous batching (like vLLM) significantly improves throughput.
 
 Here is a performance trace sample from the current session:
