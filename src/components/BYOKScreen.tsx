@@ -80,18 +80,7 @@ export function BYOKScreen() {
 </div>
 </div>
 </section>
-<section className="glass-card rounded-xl p-card-padding min-h-[300px] flex flex-col">
-<div className="flex justify-between items-center mb-stack-md">
-<h3 className="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
-<span className="material-symbols-outlined text-secondary">terminal</span> 实时响应流
-</h3>
-<span className="px-2 py-1 bg-secondary/20 text-secondary rounded">LIVE</span>
-</div>
-<div className="flex-1 bg-background rounded-lg p-4 font-data-mono-sm text-data-mono-sm text-on-surface overflow-y-auto border border-white/5 relative" ref={streamContainerRef}>
-  <div className="streaming-text whitespace-pre-wrap">{displayedText}</div>
-</div>
-</section>
-<section className="glass-card rounded-xl p-card-padding flex items-center gap-gutter flex-wrap">
+      <section className="glass-card rounded-xl p-card-padding flex items-center gap-gutter flex-wrap">
         <div className="flex-1 min-w-[200px]">
           <label className="block font-headline-sm text-headline-sm text-on-surface mb-2" htmlFor="speed-slider">目标节流速度 / Target Throttle (t/s): <span className="text-secondary">{speed}</span></label>
           <input 
@@ -110,6 +99,18 @@ export function BYOKScreen() {
         >
           {isPlaying ? 'Pause Stream' : 'Resume Stream'}
         </button>
+      </section>
+      
+      <section className="glass-card rounded-xl p-card-padding min-h-[300px] flex flex-col">
+        <div className="flex justify-between items-center mb-stack-md">
+          <h3 className="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+            <span className="material-symbols-outlined text-secondary">terminal</span> 实时响应流
+          </h3>
+          <span className="px-2 py-1 bg-secondary/20 text-secondary rounded">LIVE</span>
+        </div>
+        <div className="flex-1 bg-background rounded-lg p-4 font-data-mono-sm text-data-mono-sm text-on-surface overflow-y-auto border border-white/5 relative" ref={streamContainerRef}>
+          <div className="streaming-text whitespace-pre-wrap">{displayedText}</div>
+        </div>
       </section>
 </main>
   );
