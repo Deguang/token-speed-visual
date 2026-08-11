@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Token Velocity Visualizer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;family=Inter:wght@400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#001e2c",
+                    "surface-bright": "#2c3a4c",
+                    "tertiary": "#4edea3",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-error": "#690005",
+                    "tertiary-fixed": "#6ffbbe",
+                    "surface-container-highest": "#273647",
+                    "secondary": "#7bd0ff",
+                    "surface-dim": "#051424",
+                    "primary-container": "#0f172a",
+                    "tertiary-container": "#001c10",
+                    "on-tertiary-container": "#009365",
+                    "inverse-primary": "#565e74",
+                    "surface-container-low": "#0d1c2d",
+                    "primary": "#bec6e0",
+                    "inverse-surface": "#d4e4fa",
+                    "surface-container": "#122131",
+                    "background": "#051424",
+                    "on-tertiary-fixed": "#002113",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "on-primary-fixed": "#131b2e",
+                    "secondary-container": "#00a6e0",
+                    "secondary-fixed": "#c4e7ff",
+                    "on-primary": "#283044",
+                    "outline": "#909097",
+                    "surface-container-lowest": "#010f1f",
+                    "outline-variant": "#45464d",
+                    "on-tertiary": "#003824",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#1c2b3c",
+                    "secondary-fixed-dim": "#7bd0ff",
+                    "on-secondary-fixed-variant": "#004c69",
+                    "error": "#ffb4ab",
+                    "inverse-on-surface": "#233143",
+                    "on-secondary": "#00354a",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-surface-variant": "#c6c6cd",
+                    "surface-tint": "#bec6e0",
+                    "on-surface": "#d4e4fa",
+                    "surface-variant": "#273647",
+                    "primary-fixed": "#dae2fd",
+                    "surface": "#051424",
+                    "on-primary-container": "#798098",
+                    "on-secondary-container": "#00374d",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-background": "#d4e4fa"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-margin": "24px",
+                    "stack-lg": "32px",
+                    "gutter": "16px",
+                    "unit": "4px",
+                    "stack-sm": "8px",
+                    "card-padding": "20px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "body-sm": [
+                            "Inter"
+                    ],
+                    "data-mono-sm": [
+                            "JetBrains Mono"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Geist"
+                    ],
+                    "headline-sm": [
+                            "Geist"
+                    ],
+                    "display-lg": [
+                            "Geist"
+                    ],
+                    "data-mono-lg": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-md-mobile": [
+                            "Geist"
+                    ]
+            },
+            "fontSize": {
+                    "body-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "data-mono-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-sm": [
+                            "18px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "data-mono-lg": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-md-mobile": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #051424;
+            color: #d4e4fa;
+        }
+        .glass-card {
+            background: rgba(13, 28, 45, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .active-glow {
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+        .model-card-glow {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .model-card-glow:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+        }
+        .pulse-gpt { box-shadow: 0 0 10px rgba(16, 185, 129, 0.3); }
+        .pulse-claude { box-shadow: 0 0 10px rgba(245, 158, 11, 0.3); }
+        .pulse-llama { box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
+        .pulse-gemini { box-shadow: 0 0 10px rgba(168, 85, 247, 0.3); }
+
+        .streaming-text::after {
+            content: '█';
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-container-margin py-4 bg-background/80 backdrop-blur-xl border-b border-white/10 hidden md:flex">
+<div class="flex items-center gap-gutter">
+<span class="font-display-lg text-display-lg font-bold tracking-tighter text-on-surface">VELOCITY.IO</span>
+</div>
+<div class="flex items-center gap-stack-lg">
+<a class="font-headline-sm text-headline-sm text-on-primary-container hover:text-secondary-fixed-dim transition-colors" href="#">基准测试</a>
+<a class="font-headline-sm text-headline-sm text-on-primary-container hover:text-secondary-fixed-dim transition-colors" href="#">模型</a>
+<a class="font-headline-sm text-headline-sm text-on-primary-container hover:text-secondary-fixed-dim transition-colors" href="#">研究</a>
+<a class="font-headline-sm text-headline-sm text-secondary border-b-2 border-secondary pb-1 scale-95 duration-100" href="#">排行榜</a>
+</div>
+<div class="flex items-center gap-gutter">
+<button class="bg-[#38bdf8] text-black px-4 py-2 rounded-lg font-headline-sm text-headline-sm">实时</button>
+<span class="material-symbols-outlined text-on-primary-container cursor-pointer hover:text-on-surface" data-icon="settings">settings</span>
+<span class="material-symbols-outlined text-on-primary-container cursor-pointer hover:text-on-surface" data-icon="help">help</span>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-full w-64 flex flex-col p-stack-md bg-surface-container-lowest/50 backdrop-blur-2xl border-r border-white/5 hidden md:flex z-40">
+<div class="mb-stack-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface">指标</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">实时技术清晰度</p>
+</div>
+<button class="bg-surface-variant text-on-surface py-2 rounded-lg mb-stack-lg border border-white/10 hover:bg-white/5 font-body-md text-body-md w-full">新建模拟</button>
+<nav class="flex-1 space-y-unit">
+<a class="flex items-center gap-stack-sm p-3 font-body-md text-body-md text-on-surface-variant hover:bg-white/5 rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span> 概览
+            </a>
+<a class="flex items-center gap-stack-sm p-3 font-body-md text-body-md text-tertiary font-bold bg-tertiary/10 rounded-xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined">speed</span> 吞吐量
+            </a>
+<a class="flex items-center gap-stack-sm p-3 font-body-md text-body-md text-on-surface-variant hover:bg-white/5 rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">timer</span> 延迟
+            </a>
+<a class="flex items-center gap-stack-sm p-3 font-body-md text-body-md text-on-surface-variant hover:bg-white/5 rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">payments</span> 经济学
+            </a>
+</nav>
+<div class="mt-auto space-y-unit pt-stack-md border-t border-white/5">
+<a class="flex items-center gap-stack-sm p-3 font-body-md text-body-md text-on-surface-variant hover:bg-white/5 rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span> 设置
+            </a>
+<a class="flex items-center gap-stack-sm p-3 font-body-md text-body-md text-on-surface-variant hover:bg-white/5 rounded-lg transition-all duration-300" href="#">
+<span class="material-symbols-outlined">description</span> 文档
+            </a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 pt-24 px-container-margin pb-container-margin flex flex-col gap-stack-lg">
+<!-- Hero Header -->
+<header>
+<h1 class="font-display-lg text-display-lg md:text-display-lg text-headline-md-mobile text-on-surface">Token Velocity Visualizer</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">实时大语言模型生成速度监控与对比分析系统</p>
+</header>
+<!-- Model Comparison Row -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- GPT-4o -->
+<div class="glass-card rounded-xl p-card-padding flex flex-col gap-stack-sm relative overflow-hidden active-glow model-card-glow bg-surface-container-low">
+<div class="flex justify-between items-center">
+<span class="font-headline-sm text-headline-sm text-on-surface">GPT-4o</span>
+<span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 font-data-mono-sm text-data-mono-sm rounded pulse-gpt">ACTIVE</span>
+</div>
+<div class="font-data-mono-lg text-data-mono-lg text-secondary">85 t/s</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden mt-2">
+<div class="h-full bg-emerald-500 w-[70%]"></div>
+</div>
+</div>
+<!-- Claude 3.5 -->
+<div class="glass-card rounded-xl p-card-padding flex flex-col gap-stack-sm relative overflow-hidden model-card-glow bg-surface-container-low">
+<div class="flex justify-between items-center">
+<span class="font-headline-sm text-headline-sm text-on-surface">Claude 3.5</span>
+<span class="px-2 py-1 bg-amber-500/10 text-amber-400 font-data-mono-sm text-data-mono-sm rounded">IDLE</span>
+</div>
+<div class="font-data-mono-lg text-data-mono-lg text-on-surface-variant">72 t/s</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden mt-2">
+<div class="h-full bg-amber-500 w-[60%]"></div>
+</div>
+</div>
+<!-- Llama 3 -->
+<div class="glass-card rounded-xl p-card-padding flex flex-col gap-stack-sm relative overflow-hidden model-card-glow bg-surface-container-low">
+<div class="flex justify-between items-center">
+<span class="font-headline-sm text-headline-sm text-on-surface">Llama 3</span>
+<span class="px-2 py-1 bg-blue-500/10 text-blue-400 font-data-mono-sm text-data-mono-sm rounded">IDLE</span>
+</div>
+<div class="font-data-mono-lg text-data-mono-lg text-on-surface-variant">110 t/s</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden mt-2">
+<div class="h-full bg-blue-500 w-[90%]"></div>
+</div>
+</div>
+<!-- Gemini 1.5 -->
+<div class="glass-card rounded-xl p-card-padding flex flex-col gap-stack-sm relative overflow-hidden model-card-glow bg-surface-container-low">
+<div class="flex justify-between items-center">
+<span class="font-headline-sm text-headline-sm text-on-surface">Gemini 1.5</span>
+<span class="px-2 py-1 bg-purple-500/10 text-purple-400 font-data-mono-sm text-data-mono-sm rounded">IDLE</span>
+</div>
+<div class="font-data-mono-lg text-data-mono-lg text-on-surface-variant">65 t/s</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden mt-2">
+<div class="h-full bg-purple-500 w-[50%]"></div>
+</div>
+</div>
+</section>
+<!-- BYOK Configuration Panel -->
+<section class="glass-card rounded-xl p-card-padding flex flex-col gap-stack-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">key</span> Bring Your Own Key (BYOK) 配置
+        </h3>
+<span class="hidden" id="test-status"></span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1" for="byok-key">API Key</label>
+<input class="w-full bg-surface-container-high border border-white/10 rounded-lg p-2 text-on-surface focus:outline-none focus:border-tertiary transition-colors font-data-mono-sm" id="byok-key" placeholder="sk-..." type="password"/>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1" for="byok-url">Base URL</label>
+<input class="w-full bg-surface-container-high border border-white/10 rounded-lg p-2 text-on-surface focus:outline-none focus:border-tertiary transition-colors font-data-mono-sm" id="byok-url" type="text" value="https://api.openai.com/v1"/>
+</div>
+<div>
+<label class="block font-body-sm text-body-sm text-on-surface-variant mb-1" for="byok-model">Model ID</label>
+<input class="w-full bg-surface-container-high border border-white/10 rounded-lg p-2 text-on-surface focus:outline-none focus:border-tertiary transition-colors font-data-mono-sm" id="byok-model" type="text" value="gpt-4o"/>
+</div>
+</div>
+<div class="flex justify-between items-center mt-2">
+<div class="text-error font-body-sm text-body-sm" id="byok-error"></div>
+<button class="bg-tertiary text-tertiary-container px-6 py-2 rounded-lg font-headline-sm text-headline-sm transition-colors hover:bg-tertiary-fixed cursor-pointer shadow-[0_0_15px_rgba(78,222,163,0.3)]" id="btn-start-test">
+            开始实时测试
+        </button>
+</div>
+</section>
+<!-- Streaming Visualizer -->
+<section class="glass-card rounded-xl p-card-padding min-h-[300px] flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-stack-md flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">terminal</span> 流式输出可视化
+    </div>
+<div class="flex gap-2 font-data-mono-sm">
+<span class="px-2 py-1 bg-secondary/20 text-secondary rounded" id="mode-simulated">SIMULATED</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant rounded opacity-50" id="mode-realtime">REAL-TIME</span>
+</div>
+</h3>
+<div class="flex-1 bg-background rounded-lg p-4 overflow-hidden border border-white/5 relative" id="stream-container">
+
+</div>
+</section>
+<!-- Custom Controls -->
+<section class="glass-card rounded-xl p-card-padding flex items-center gap-gutter">
+<div class="flex-1">
+<label class="block font-headline-sm text-headline-sm text-on-surface mb-2" for="speed-slider">自定义速度 (t/s): <span class="text-secondary" id="speed-value">10</span></label>
+<input class="w-full accent-[#38bdf8] bg-surface-container-high rounded-lg appearance-none h-2 cursor-pointer" id="speed-slider" max="200" min="1" type="range" value="10"/>
+</div>
+<button class="bg-[#38bdf8] text-black px-6 py-3 rounded-lg font-headline-sm text-headline-sm mt-8 transition-colors" id="toggle-stream">暂停</button>
+</section>
+<!-- Data Grid -->
+<section class="glass-card rounded-xl overflow-hidden">
+<div class="p-card-padding border-b border-white/10">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">历史吞吐量数据</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low font-data-mono-sm text-data-mono-sm text-on-surface-variant">
+<th class="p-4 border-b border-white/5">时间戳</th>
+<th class="p-4 border-b border-white/5">模型</th>
+<th class="p-4 border-b border-white/5">平均速度 (t/s)</th>
+<th class="p-4 border-b border-white/5">峰值 (t/s)</th>
+<th class="p-4 border-b border-white/5">状态</th>
+</tr>
+</thead>
+<tbody class="font-data-mono-sm text-data-mono-sm text-on-surface">
+<tr class="hover:bg-white/5 transition-colors">
+<td class="p-4 border-b border-white/5">2024-05-20 14:30:00</td>
+<td class="p-4 border-b border-white/5">GPT-4o</td>
+<td class="p-4 border-b border-white/5 text-secondary">84.2</td>
+<td class="p-4 border-b border-white/5">91.5</td>
+<td class="p-4 border-b border-white/5"><span class="text-emerald-400">稳定</span></td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="p-4 border-b border-white/5">2024-05-20 14:25:00</td>
+<td class="p-4 border-b border-white/5">Claude 3.5</td>
+<td class="p-4 border-b border-white/5 text-secondary">71.8</td>
+<td class="p-4 border-b border-white/5">75.0</td>
+<td class="p-4 border-b border-white/5"><span class="text-emerald-400">稳定</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-gutter px-container-margin flex justify-between items-center bg-surface-container-lowest border-t border-white/10 z-50 relative">
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface">© 2024 VELOCITY LLM INFRA. 保留所有权利。</span>
+<div class="flex gap-gutter font-data-mono-sm text-data-mono-sm text-on-primary-container">
+<a class="hover:text-on-surface" href="#">方法论</a>
+<a class="hover:text-on-surface" href="#">文档</a>
+<a class="hover:text-on-surface" href="#">API 文档</a>
+<a class="hover:text-on-surface" href="#">隐私</a>
+</div>
+</footer>
+<script>
+        // Custom Element definition for threejs-scene
+        class ThreeJSScene extends HTMLElement {
+            connectedCallback() {
+                const animationId = this.getAttribute('data-animation-id');
+                if (animationId === 'ANIMATION_25') {
+                    this.initAnimation25();
+                }
+            }
+
+            initAnimation25() {
+                const container = this;
+                let speed = 10;
+                let tokens = [];
+                let lastTokenTime = 0;
+                
+                // Allow time for DOM to compute sizes
+                setTimeout(() => {
+                    const containerWidth = container.clientWidth || window.innerWidth;
+                    const containerHeight = container.clientHeight || 300; 
+    
+                    const canvas = document.createElement('canvas');
+                    canvas.width = containerWidth;
+                    canvas.height = containerHeight;
+                    container.appendChild(canvas);
+                    const ctx = canvas.getContext('2d');
+    
+                    // Listen for custom speed events from the UI
+                    window.addEventListener('update-token-speed', (e) => {
+                      speed = e.detail.speed;
+                    });
+    
+                    const words = ["velocity", "intelligence", "neural", "network", "transformer", "latency", "throughput", "compute", "scaling", "inference", "tokens", "stream", "logic", "kinetic", "flow"];
+    
+                    function createToken() {
+                      const word = words[Math.floor(Math.random() * words.length)];
+                      return {
+                        text: word,
+                        x: -50,
+                        y: Math.random() * (canvas.height - 40) + 20,
+                        vx: (speed / 10) * 2 + 1,
+                        alpha: 1,
+                        color: `hsl(${Math.random() * 60 + 190}, 80%, 60%)`
+                      };
+                    }
+    
+                    function animate(time) {
+                      ctx.clearRect(0, 0, canvas.width, canvas.height);
+                      
+                      // Speed control logic: generate tokens based on 'speed' (tokens/s)
+                      const interval = speed > 0 ? 1000 / speed : Infinity;
+                      if (time - lastTokenTime > interval) {
+                        tokens.push(createToken());
+                        lastTokenTime = time;
+                      }
+                      
+                      ctx.font = '14px "Geist Mono", monospace';
+                      
+                      for (let i = tokens.length - 1; i >= 0; i--) {
+                        let t = tokens[i];
+                        t.x += t.vx;
+                        t.alpha -= 0.005;
+                        
+                        ctx.fillStyle = t.color;
+                        ctx.globalAlpha = Math.max(0, t.alpha);
+                        ctx.fillText(t.text, t.x, t.y);
+                        
+                        if (t.x > canvas.width || t.alpha <= 0) {
+                          tokens.splice(i, 1);
+                        }
+                      }
+                      
+                      ctx.globalAlpha = 1;
+                      requestAnimationFrame(animate);
+                    }
+    
+                    requestAnimationFrame(animate);
+    
+                    window.addEventListener('resize', () => {
+                      canvas.width = container.clientWidth || window.innerWidth;
+                      canvas.height = container.clientHeight || 300;
+                    });
+                }, 0);
+            }
+        }
+        
+        if (!customElements.get('threejs-scene')) {
+            customElements.define('threejs-scene', ThreeJSScene);
+        }
+
+        const speedSlider = document.getElementById('speed-slider');
+        const speedValue = document.getElementById('speed-value');
+        const toggleBtn = document.getElementById('toggle-stream');
+        
+        let isPlaying = true;
+        let currentSpeed = parseInt(speedSlider.value, 10);
+
+        speedSlider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            speedValue.textContent = val;
+            currentSpeed = parseInt(val, 10);
+            if (isPlaying) {
+                window.dispatchEvent(new CustomEvent('update-token-speed', { detail: { speed: currentSpeed } }));
+            }
+        });
+
+        toggleBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            toggleBtn.textContent = isPlaying ? '暂停' : '恢复';
+            toggleBtn.className = isPlaying 
+                ? 'bg-[#38bdf8] text-black px-6 py-3 rounded-lg font-headline-sm text-headline-sm mt-8 transition-colors' 
+                : 'bg-surface-variant text-on-surface border border-white/10 px-6 py-3 rounded-lg font-headline-sm text-headline-sm mt-8 transition-colors';
+            
+            // If paused, send speed 0, else send current speed
+            window.dispatchEvent(new CustomEvent('update-token-speed', { detail: { speed: isPlaying ? currentSpeed : 0 } }));
+        });
+        
+        // Initial dispatch
+        window.dispatchEvent(new CustomEvent('update-token-speed', { detail: { speed: currentSpeed } }));
+
+        // BYOK Logic
+        const btnStartTest = document.getElementById('btn-start-test');
+        const byokKey = document.getElementById('byok-key');
+        const byokUrl = document.getElementById('byok-url');
+        const byokModel = document.getElementById('byok-model');
+        const byokError = document.getElementById('byok-error');
+        const testStatus = document.getElementById('test-status');
+        const modeSimulated = document.getElementById('mode-simulated');
+        const modeRealtime = document.getElementById('mode-realtime');
+
+        let abortController = null;
+
+        async function startRealTimeTest() {
+            byokError.textContent = '';
+            const key = byokKey.value.trim();
+            const url = byokUrl.value.trim();
+            const model = byokModel.value.trim();
+
+            if (!key) {
+                byokError.textContent = '请提供 API Key';
+                return;
+            }
+
+            // Update UI for active test
+            modeSimulated.className = 'px-2 py-1 bg-surface-container-high text-on-surface-variant rounded opacity-50';
+            modeRealtime.className = 'px-2 py-1 bg-tertiary/20 text-tertiary rounded pulse-gpt';
+            
+            testStatus.classList.remove('hidden');
+            testStatus.textContent = 'Connecting...';
+            testStatus.className = 'px-2 py-1 bg-amber-500/20 text-amber-400 font-data-mono-sm text-data-mono-sm rounded pulse-claude';
+            
+            btnStartTest.textContent = '停止测试';
+            btnStartTest.classList.remove('bg-tertiary', 'text-tertiary-container', 'hover:bg-tertiary-fixed');
+            btnStartTest.classList.add('bg-error', 'text-error-container', 'hover:opacity-90');
+
+            abortController = new AbortController();
+
+            let startTime = Date.now();
+            let tokenCount = 0;
+            
+            // Disable simulated speed updates
+            isPlaying = false;
+            toggleBtn.textContent = '恢复模拟';
+            toggleBtn.className = 'bg-surface-variant text-on-surface border border-white/10 px-6 py-3 rounded-lg font-headline-sm text-headline-sm mt-8 transition-colors';
+            
+            try {
+                const response = await fetch(`${url}/chat/completions`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${key}`
+                    },
+                    body: JSON.stringify({
+                        model: model,
+                        messages: [{ role: 'user', content: 'Explain quantum computing in detail, generating a long response to test streaming speed.' }],
+                        stream: true
+                    }),
+                    signal: abortController.signal
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                testStatus.textContent = 'Streaming...';
+                testStatus.className = 'px-2 py-1 bg-emerald-500/20 text-emerald-400 font-data-mono-sm text-data-mono-sm rounded pulse-gpt';
+
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder('utf-8');
+                
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    
+                    const chunk = decoder.decode(value, { stream: true });
+                    const lines = chunk.split('\n').filter(line => line.trim() !== '');
+                    
+                    for (const line of lines) {
+                        if (line.includes('[DONE]')) continue;
+                        if (line.startsWith('data: ')) {
+                            try {
+                                const data = JSON.parse(line.slice(6));
+                                if (data.choices && data.choices[0] && data.choices[0].delta && data.choices[0].delta.content) {
+                                    tokenCount++; // Approximation
+                                    
+                                    const elapsed = (Date.now() - startTime) / 1000;
+                                    if (elapsed > 0.5) {
+                                        const speed = Math.round(tokenCount / elapsed);
+                                        speedValue.textContent = speed;
+                                        window.dispatchEvent(new CustomEvent('update-token-speed', { detail: { speed: speed } }));
+                                    }
+                                }
+                            } catch (e) {
+                                // ignore parse errors
+                            }
+                        }
+                    }
+                }
+                testStatus.textContent = 'Finished';
+                testStatus.className = 'px-2 py-1 bg-blue-500/20 text-blue-400 font-data-mono-sm text-data-mono-sm rounded';
+            } catch (error) {
+                if (error.name !== 'AbortError') {
+                    byokError.textContent = error.message || '请求失败';
+                    testStatus.textContent = 'Error';
+                    testStatus.className = 'px-2 py-1 bg-error-container/20 text-error font-data-mono-sm text-data-mono-sm rounded';
+                }
+            } finally {
+                btnStartTest.textContent = '开始实时测试';
+                btnStartTest.classList.remove('bg-error', 'text-error-container', 'hover:opacity-90');
+                btnStartTest.classList.add('bg-tertiary', 'text-tertiary-container', 'hover:bg-tertiary-fixed');
+                abortController = null;
+                
+                // Reset mode indicators
+                modeSimulated.className = 'px-2 py-1 bg-secondary/20 text-secondary rounded';
+                modeRealtime.className = 'px-2 py-1 bg-surface-container-high text-on-surface-variant rounded opacity-50';
+            }
+        }
+
+        btnStartTest.addEventListener('click', () => {
+            if (abortController) {
+                abortController.abort();
+            } else {
+                startRealTimeTest();
+            }
+        });
+
+    </script>
+</body></html>
