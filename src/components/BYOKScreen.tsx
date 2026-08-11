@@ -18,13 +18,14 @@ The trace shows a healthy cache utilization. We recommend keeping utilization be
 
 export function BYOKScreen() {
   const [speed, setSpeed] = useState(60);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
   const [displayedText, setDisplayedText] = useState("");
   const textIndexRef = useRef(0);
   const streamContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!isPlaying) return;
+    if (!isPlaying || !hasStarted) return;
     const msPerToken = 1000 / speed;
     
     const interval = setInterval(() => {
@@ -40,7 +41,14 @@ export function BYOKScreen() {
       }
     }, msPerToken);
     return () => clearInterval(interval);
-  }, [speed, isPlaying]);
+  }, [speed, isPlaying, hasStarted]);
+
+  const handleStartTest = () => {
+    setHasStarted(true);
+    setIsPlaying(true);
+    textIndexRef.current = 0;
+    setDisplayedText("");
+  };
 
   return (
     <main className="flex-1 md:ml-64 pt-24 px-container-margin pb-container-margin flex flex-col gap-stack-lg">
@@ -74,7 +82,10 @@ export function BYOKScreen() {
 </div>
 </div>
 <div className="w-full md:w-1/3 flex flex-col justify-end">
-<button className="bg-secondary text-on-secondary px-6 py-3 rounded-lg font-headline-sm text-headline-sm w-full hover:bg-secondary-fixed-dim transition-colors flex items-center justify-center gap-2">
+<button 
+  className="bg-secondary text-on-secondary px-6 py-3 rounded-lg font-headline-sm text-headline-sm w-full hover:bg-secondary-fixed-dim transition-colors flex items-center justify-center gap-2"
+  onClick={handleStartTest}
+>
 <span className="material-symbols-outlined">rocket_launch</span> 开始全链路测速
 </button>
 </div>
@@ -109,7 +120,7 @@ export function BYOKScreen() {
           <span className="px-2 py-1 bg-secondary/20 text-secondary rounded">LIVE</span>
         </div>
         <div className="flex-1 bg-background rounded-lg p-4 font-data-mono-sm text-data-mono-sm text-on-surface overflow-y-auto border border-white/5 relative" ref={streamContainerRef}>
-          <div className="streaming-text whitespace-pre-wrap">{displayedText}</div>
+          <div className="streaming-text whitespace-pre-wrap">{displayedText || (hasStarted ? "" : "Waiting for API Key and test execution...")}</div>
         </div>
       </section>
 </main>
