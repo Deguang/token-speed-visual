@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { DashboardScreen } from './components/DashboardScreen';
-import { BYOKScreen } from './components/BYOKScreen';
-import { ResearchScreen } from './components/ResearchScreen';
-import { ModelsScreen } from './components/ModelsScreen';
-import { LeaderboardScreen } from './components/LeaderboardScreen';
+import { useState, lazy, Suspense } from 'react';
+
+const DashboardScreen = lazy(() => import('./components/DashboardScreen').then(module => ({ default: module.DashboardScreen })));
+const BYOKScreen = lazy(() => import('./components/BYOKScreen').then(module => ({ default: module.BYOKScreen })));
+const ResearchScreen = lazy(() => import('./components/ResearchScreen').then(module => ({ default: module.ResearchScreen })));
+const ModelsScreen = lazy(() => import('./components/ModelsScreen').then(module => ({ default: module.ModelsScreen })));
+const LeaderboardScreen = lazy(() => import('./components/LeaderboardScreen').then(module => ({ default: module.LeaderboardScreen })));
 
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -72,11 +73,13 @@ function App() {
       </aside>
 
       {/* Dynamic Content */}
-      {activeTab === 'dashboard' && <DashboardScreen navigate={navigate} />}
-      {activeTab === 'byok' && <BYOKScreen routePayload={routePayload} />}
-      {activeTab === 'research' && <ResearchScreen />}
-      {activeTab === 'models' && <ModelsScreen navigate={navigate} />}
-      {activeTab === 'leaderboard' && <LeaderboardScreen />}
+      <Suspense fallback={<div className="flex-1 md:ml-64 pt-24 flex items-center justify-center h-full min-h-[50vh]"><div className="font-data-mono-sm text-secondary animate-pulse flex items-center gap-2"><span className="material-symbols-outlined animate-spin">sync</span> Loading interface modules...</div></div>}>
+        {activeTab === 'dashboard' && <DashboardScreen navigate={navigate} />}
+        {activeTab === 'byok' && <BYOKScreen routePayload={routePayload} />}
+        {activeTab === 'research' && <ResearchScreen />}
+        {activeTab === 'models' && <ModelsScreen navigate={navigate} />}
+        {activeTab === 'leaderboard' && <LeaderboardScreen />}
+      </Suspense>
 
       {/* Footer */}
       <footer className="w-full py-gutter px-container-margin flex flex-wrap justify-between items-center bg-surface-container-lowest border-t border-white/10 z-50 relative">
