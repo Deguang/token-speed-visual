@@ -37,8 +37,6 @@ function App() {
         </div>
         <div className="flex items-center gap-gutter">
           <button className="bg-[#38bdf8] text-black px-4 py-2 rounded-lg font-headline-sm text-headline-sm">Live</button>
-          <span className="material-symbols-outlined text-on-primary-container cursor-pointer hover:text-on-surface">settings</span>
-          <span className="material-symbols-outlined text-on-primary-container cursor-pointer hover:text-on-surface">help</span>
         </div>
       </nav>
 
@@ -60,13 +58,8 @@ function App() {
             <span className="material-symbols-outlined">play_circle</span> 动态演示
           </button>
         </nav>
-        <div className="mt-auto space-y-unit pt-stack-md border-t border-white/5 mb-16">
-          <a className="flex items-center gap-stack-sm p-3 font-body-md text-body-md text-on-surface-variant hover:bg-white/5 rounded-lg transition-all duration-300" href="#">
-            <span className="material-symbols-outlined">settings</span> 设置
-          </a>
-          <a className="flex items-center gap-stack-sm p-3 font-body-md text-body-md text-on-surface-variant hover:bg-white/5 rounded-lg transition-all duration-300" href="#">
-            <span className="material-symbols-outlined">description</span> 文档
-          </a>
+        <div className="mt-auto space-y-unit pt-stack-md border-white/5 mb-16">
+          {/* Settings and Documentation hidden for now */}
         </div>
       </aside>
 
@@ -84,8 +77,6 @@ function App() {
         <span className="font-data-mono-sm text-data-mono-sm text-on-surface">© 2026 VELOCITY LLM INFRA. ALL RIGHTS RESERVED.</span>
         <div className="flex gap-gutter font-data-mono-sm text-data-mono-sm text-on-primary-container">
           <a className="hover:text-on-surface" href="#">Methodology</a>
-          <a className="hover:text-on-surface" href="#">Documentation</a>
-          <a className="hover:text-on-surface" href="#">API Docs</a>
           <a className="hover:text-on-surface" href="#">Privacy</a>
         </div>
       </footer>
