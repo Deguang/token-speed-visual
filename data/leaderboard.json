@@ -1,0 +1,54 @@
+[
+  {
+    "rank": 1,
+    "id": "gpt-4o",
+    "name": "GPT-4o",
+    "icon": "smart_toy",
+    "efficiencyScore": 98.4,
+    "tps": 115.2,
+    "latencyMs": 240,
+    "cost": "$5.00",
+    "tier": "Elite",
+    "tierColor": "secondary",
+    "trend": "horizontal_rule"
+  },
+  {
+    "rank": 2,
+    "id": "claude-3-5-sonnet",
+    "name": "Claude 3.5 Sonnet",
+    "icon": "psychology",
+    "efficiencyScore": 97.8,
+    "tps": 110.5,
+    "latencyMs": 265,
+    "cost": "$3.00",
+    "tier": "Elite",
+    "tierColor": "secondary",
+    "trend": "trending_up"
+  },
+  {
+    "rank": 3,
+    "id": "llama-3-70b-groq",
+    "name": "Llama 3 70B (Groq)",
+    "icon": "hub",
+    "efficiencyScore": 94.2,
+    "tps": 320.0,
+    "latencyMs": 180,
+    "cost": "$0.64",
+    "tier": "High",
+    "tierColor": "primary",
+    "trend": "trending_down"
+  },
+  {
+    "rank": 4,
+    "id": "gemini-1-5-pro",
+    "name": "Gemini 1.5 Pro",
+    "icon": "memory",
+    "efficiencyScore": 92.5,
+    "tps": 95.4,
+    "latencyMs": 410,
+    "cost": "$7.00",
+    "tier": "Elite",
+    "tierColor": "secondary",
+    "trend": "trending_up"
+  }
+]

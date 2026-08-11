@@ -1,0 +1,42 @@
+[
+  {
+    "id": "gpt-4o",
+    "name": "GPT-4o",
+    "provider": "OpenAI",
+    "modality": "Omni",
+    "context": "128k",
+    "params": "Undisclosed",
+    "release": "May 2024",
+    "color": "emerald"
+  },
+  {
+    "id": "claude-3-5-sonnet",
+    "name": "Claude 3.5 Sonnet",
+    "provider": "Anthropic",
+    "modality": "Text+Vision",
+    "context": "200k",
+    "params": "Undisclosed",
+    "release": "Jun 2024",
+    "color": "purple"
+  },
+  {
+    "id": "llama-3-1-405b",
+    "name": "Llama 3.1 405B",
+    "provider": "Meta",
+    "modality": "Open Text",
+    "context": "128k",
+    "params": "405B",
+    "release": "Jul 2024",
+    "color": "indigo"
+  },
+  {
+    "id": "gemini-1-5-pro",
+    "name": "Gemini 1.5 Pro",
+    "provider": "Google",
+    "modality": "Multimodal",
+    "context": "2M",
+    "params": "Undisclosed",
+    "release": "May 2024",
+    "color": "blue"
+  }
+]
