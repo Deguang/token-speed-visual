@@ -35,8 +35,8 @@ class Router:
 
 By utilizing a Radix Tree, we avoid the overhead of linear regex matching, ensuring that routing time scales logarithmically (O(k) where k is path depth) rather than linearly with the number of endpoints. This is critical for scaling enterprise APIs.`;
 
-export function DashboardScreen() {
-  const [speed, setSpeed] = useState(85);
+export function DashboardScreen({ navigate }: { navigate?: (tab: string, payload?: any) => void }) {
+  const [speed, setSpeed] = useState(120);
   const [isPlaying, setIsPlaying] = useState(true);
   const [displayedText, setDisplayedText] = useState("");
   
@@ -165,8 +165,20 @@ export function DashboardScreen() {
       </section>
 
       <section className="glass-card rounded-xl overflow-hidden">
-        <div className="p-card-padding border-b border-white/10">
+        <div className="p-card-padding border-b border-white/10 flex justify-between items-center">
           <h3 className="font-headline-sm text-headline-sm text-on-surface">最近推理历史 (Recent Inference Logs)</h3>
+          {navigate ? (
+            <button 
+              onClick={() => navigate('leaderboard')}
+              className="text-secondary hover:text-secondary-fixed-dim font-headline-sm flex items-center gap-1 transition-colors"
+            >
+              View Global Leaderboard <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          ) : (
+            <button className="text-secondary hover:text-secondary-fixed-dim font-headline-sm flex items-center gap-1 transition-colors">
+              View All <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          )}
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">

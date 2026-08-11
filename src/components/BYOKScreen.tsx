@@ -16,11 +16,19 @@ Here is a performance trace sample from the current session:
 \`\`\`
 The trace shows a healthy cache utilization. We recommend keeping utilization below 0.90 to prevent P99 latency spikes during burst traffic.`;
 
-export function BYOKScreen() {
+export function BYOKScreen({ routePayload }: { routePayload?: any }) {
   const [speed, setSpeed] = useState(60);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const [provider, setProvider] = useState("OpenRouter (Aggregator)");
+  
+  // Set default provider if passed via navigation
+  useEffect(() => {
+    if (routePayload && routePayload.provider) {
+      setProvider(routePayload.provider);
+    }
+  }, [routePayload]);
+
   const [displayedText, setDisplayedText] = useState("");
   const textIndexRef = useRef(0);
   const streamContainerRef = useRef<HTMLDivElement>(null);

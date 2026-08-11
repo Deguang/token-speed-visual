@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import { DashboardScreen } from './components/DashboardScreen';
 import { BYOKScreen } from './components/BYOKScreen';
-import { DynamicDemoScreen } from './components/DynamicDemoScreen';
-import { BenchmarksScreen } from './components/BenchmarksScreen';
 import { ResearchScreen } from './components/ResearchScreen';
 import { ModelsScreen } from './components/ModelsScreen';
 import { LeaderboardScreen } from './components/LeaderboardScreen';
 
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
+  const [routePayload, setRoutePayload] = useState<any>(null);
+
+  const navigate = (tab: string, payload?: any) => {
+    setActiveTab(tab);
+    if (payload) setRoutePayload(payload);
+  };
 
   return (
     <div className="antialiased min-h-screen flex flex-col relative overflow-x-hidden">
@@ -18,10 +22,6 @@ function App() {
           <span className="font-display-lg text-[24px] md:text-[32px] font-bold tracking-tighter text-on-surface">VELOCITY.IO</span>
         </div>
         <div className="flex items-center gap-stack-lg">
-          <button 
-            onClick={() => setActiveTab('benchmarks')} 
-            className={`font-headline-sm text-headline-sm transition-colors ${activeTab === 'benchmarks' ? 'text-secondary border-b-2 border-secondary pb-1 scale-95 duration-100' : 'text-on-primary-container hover:text-secondary-fixed-dim'}`}
-          >Benchmarks</button>
           <button 
             onClick={() => setActiveTab('models')} 
             className={`font-headline-sm text-headline-sm transition-colors ${activeTab === 'models' ? 'text-secondary border-b-2 border-secondary pb-1 scale-95 duration-100' : 'text-on-primary-container hover:text-secondary-fixed-dim'}`}
@@ -54,9 +54,6 @@ function App() {
           <button onClick={() => setActiveTab('byok')} className={`flex items-center gap-stack-sm p-3 font-body-md text-body-md w-full text-left rounded-lg transition-all duration-300 ${activeTab === 'byok' ? 'text-tertiary font-bold bg-tertiary/10' : 'text-on-surface-variant hover:bg-white/5'}`}>
             <span className="material-symbols-outlined">speed</span> BYOK 测速
           </button>
-          <button onClick={() => setActiveTab('demo')} className={`flex items-center gap-stack-sm p-3 font-body-md text-body-md w-full text-left rounded-lg transition-all duration-300 ${activeTab === 'demo' ? 'text-tertiary font-bold bg-tertiary/10' : 'text-on-surface-variant hover:bg-white/5'}`}>
-            <span className="material-symbols-outlined">play_circle</span> 动态演示
-          </button>
         </nav>
         <div className="mt-auto space-y-unit pt-stack-md border-white/5 mb-16">
           {/* Settings and Documentation hidden for now */}
@@ -64,12 +61,10 @@ function App() {
       </aside>
 
       {/* Dynamic Content */}
-      {activeTab === 'dashboard' && <DashboardScreen />}
-      {activeTab === 'byok' && <BYOKScreen />}
-      {activeTab === 'demo' && <DynamicDemoScreen />}
-      {activeTab === 'benchmarks' && <BenchmarksScreen />}
+      {activeTab === 'dashboard' && <DashboardScreen navigate={navigate} />}
+      {activeTab === 'byok' && <BYOKScreen routePayload={routePayload} />}
       {activeTab === 'research' && <ResearchScreen />}
-      {activeTab === 'models' && <ModelsScreen />}
+      {activeTab === 'models' && <ModelsScreen navigate={navigate} />}
       {activeTab === 'leaderboard' && <LeaderboardScreen />}
 
       {/* Footer */}

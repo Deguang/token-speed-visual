@@ -11,7 +11,18 @@ interface ModelInfo {
   color: string;
 }
 
-export function ModelsScreen() {
+interface ModelInfo {
+  id: string;
+  name: string;
+  provider: string;
+  modality: string;
+  context: string;
+  params: string;
+  release: string;
+  color: string;
+}
+
+export function ModelsScreen({ navigate }: { navigate?: (tab: string, payload?: any) => void }) {
   const [models, setModels] = useState<ModelInfo[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
@@ -82,9 +93,17 @@ export function ModelsScreen() {
                   <span className="font-data-mono-sm text-data-mono-sm text-on-surface-variant uppercase">Params</span>
                   <span className="font-data-mono-lg text-data-mono-lg text-on-surface">{model.params}</span>
                 </div>
-                <div className="flex flex-col col-span-2 mt-stack-sm pt-stack-sm border-t border-white/5">
-                  <span className="font-data-mono-sm text-data-mono-sm text-on-surface-variant uppercase">Release</span>
-                  <span className="font-body-sm text-body-sm text-on-surface">{model.release}</span>
+                <div className="flex justify-between items-center mt-stack-md pt-stack-sm border-t border-white/5 col-span-2">
+                  <span className="font-data-mono-sm text-data-mono-sm text-on-surface-variant px-2 py-1 bg-surface-container rounded">{model.release}</span>
+                  {navigate && (
+                    <button 
+                      onClick={() => navigate('byok', { provider: 'Custom API Endpoint', autoStart: false })}
+                      className="font-headline-sm text-headline-sm text-secondary hover:text-secondary-fixed-dim transition-colors flex items-center gap-1"
+                    >
+                      <span className="material-symbols-outlined text-sm">speed</span>
+                      Test Node
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
