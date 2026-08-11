@@ -81,6 +81,26 @@ function App() {
         {activeTab === 'leaderboard' && <LeaderboardScreen />}
       </Suspense>
 
+      {/* Mobile Bottom Navigation */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container/90 backdrop-blur-md border-t border-white/10 z-50 flex justify-around items-center p-2 pb-safe">
+        {[
+          { id: 'dashboard', icon: 'dashboard', label: '概览' },
+          { id: 'byok', icon: 'speed', label: 'BYOK' },
+          { id: 'models', icon: 'memory', label: '模型' },
+          { id: 'leaderboard', icon: 'emoji_events', label: '榜单' },
+          { id: 'research', icon: 'science', label: '研究' }
+        ].map(tab => (
+          <button 
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`flex flex-col items-center p-2 rounded-lg transition-colors ${activeTab === tab.id ? 'text-secondary' : 'text-on-surface-variant hover:text-on-surface'}`}
+          >
+            <span className="material-symbols-outlined text-[20px]">{tab.icon}</span>
+            <span className="text-[10px] mt-1 font-body-sm">{tab.label}</span>
+          </button>
+        ))}
+      </nav>
+
       {/* Footer */}
       <footer className="w-full py-gutter px-container-margin flex flex-wrap justify-between items-center bg-surface-container-lowest border-t border-white/10 z-50 relative">
         <span className="font-data-mono-sm text-data-mono-sm text-on-surface">© 2026 VELOCITY LLM INFRA. ALL RIGHTS RESERVED.</span>
