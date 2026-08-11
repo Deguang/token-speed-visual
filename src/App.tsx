@@ -5,6 +5,7 @@ const BYOKScreen = lazy(() => import('./components/BYOKScreen').then(module => (
 const ResearchScreen = lazy(() => import('./components/ResearchScreen').then(module => ({ default: module.ResearchScreen })));
 const ModelsScreen = lazy(() => import('./components/ModelsScreen').then(module => ({ default: module.ModelsScreen })));
 const LeaderboardScreen = lazy(() => import('./components/LeaderboardScreen').then(module => ({ default: module.LeaderboardScreen })));
+const PrivacyScreen = lazy(() => import('./components/PrivacyScreen').then(module => ({ default: module.PrivacyScreen })));
 
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -82,6 +83,7 @@ function App() {
         {activeTab === 'research' && <ResearchScreen />}
         {activeTab === 'models' && <ModelsScreen navigate={navigate} />}
         {activeTab === 'leaderboard' && <LeaderboardScreen />}
+        {activeTab === 'privacy' && <PrivacyScreen />}
       </Suspense>
 
       {/* Mobile Bottom Navigation */}
@@ -108,8 +110,9 @@ function App() {
       <footer className="w-full py-gutter px-container-margin flex flex-wrap justify-between items-center bg-surface-container-lowest border-t border-white/10 z-50 relative md:block hidden">
         <span className="font-data-mono-sm text-data-mono-sm text-on-surface">© 2026 tokenSpeed. ALL RIGHTS RESERVED.</span>
         <div className="flex gap-gutter font-data-mono-sm text-data-mono-sm text-on-primary-container">
-          <a className="hover:text-on-surface" href="#">Methodology</a>
-          <a className="hover:text-on-surface" href="#">Privacy</a>
+          <button onClick={() => navigate('privacy')} className="hover:text-on-surface transition-colors cursor-pointer">Methodology</button>
+          <button onClick={() => navigate('privacy')} className="hover:text-on-surface transition-colors cursor-pointer">Privacy</button>
+          <button onClick={() => navigate('privacy')} className="hover:text-on-surface transition-colors cursor-pointer">Terms</button>
         </div>
       </footer>
     </div>
