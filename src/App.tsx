@@ -20,7 +20,7 @@ function App() {
       {/* TopNavBar */}
       <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-container-margin py-4 bg-background/80 backdrop-blur-xl border-b border-white/10 hidden md:flex">
         <div className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.3)] bg-[#0B1120] border border-white/10">
+          <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center bg-[#0B1120] border border-white/10 shadow-lg">
             <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="tokenSpeed Logo" className="w-full h-full object-cover" />
           </div>
           <span className="font-display-lg text-[24px] md:text-[32px] font-bold tracking-tighter text-on-surface">token<span className="text-secondary">Speed</span></span>
@@ -40,7 +40,7 @@ function App() {
           >Leaderboard</button>
         </div>
         <div className="flex items-center gap-gutter">
-          <div className="bg-[#38bdf8]/10 border border-[#38bdf8]/30 text-[#38bdf8] px-3 py-1.5 rounded-lg font-headline-sm text-headline-sm flex items-center gap-2 shadow-[0_0_10px_rgba(56,189,248,0.2)]">
+          <div className="bg-[#38bdf8]/10 text-[#38bdf8] px-3 py-1.5 rounded-lg font-headline-sm text-headline-sm flex items-center gap-2">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38bdf8] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#38bdf8]"></span>
@@ -58,7 +58,7 @@ function App() {
         </div>
         <button 
           onClick={() => navigate('byok')}
-          className="bg-secondary text-on-secondary py-2 rounded-lg mb-stack-lg border border-white/10 hover:bg-secondary-fixed-dim transition-colors font-headline-sm text-headline-sm w-full shadow-[0_0_15px_rgba(56,189,248,0.2)] flex justify-center items-center gap-2"
+          className="bg-secondary text-on-secondary py-2 rounded-lg mb-stack-lg border border-white/10 hover:bg-secondary-fixed-dim transition-colors font-headline-sm text-headline-sm w-full shadow-lg flex justify-center items-center gap-2"
         >
           <span className="material-symbols-outlined text-[18px]">add</span> New Simulation
         </button>

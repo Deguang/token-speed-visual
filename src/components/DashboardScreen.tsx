@@ -122,11 +122,11 @@ export function DashboardScreen({ navigate }: { navigate?: (tab: string, payload
         <div className="glass-card rounded-xl p-card-padding flex flex-col gap-stack-sm relative overflow-hidden">
           <div className="flex justify-between items-center">
             <span className="font-headline-sm text-headline-sm text-on-surface">Gemini 3.6 Pro</span>
-            <span className="px-2 py-1 bg-purple-500/10 text-purple-400 font-data-mono-sm text-data-mono-sm rounded">IDLE</span>
+            <span className="px-2 py-1 bg-pink-500/10 text-pink-400 font-data-mono-sm text-data-mono-sm rounded">IDLE</span>
           </div>
           <div className="font-data-mono-lg text-data-mono-lg text-on-surface-variant">195.4 t/s</div>
           <div className="w-full h-1 bg-surface-container-high rounded-full overflow-hidden mt-2">
-            <div className="h-full bg-purple-500 w-[55%]"></div>
+            <div className="h-full bg-pink-500 w-[55%]"></div>
           </div>
         </div>
       </section>

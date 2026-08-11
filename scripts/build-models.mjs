@@ -39,7 +39,7 @@ async function fetchModels() {
       if (m.id.includes('openai')) color = 'emerald';
       else if (m.id.includes('anthropic')) color = 'amber';
       else if (m.id.includes('meta') || m.id.includes('llama')) color = 'blue';
-      else if (m.id.includes('google')) color = 'purple';
+      else if (m.id.includes('google')) color = 'pink';
       
       const provider = m.id.split('/')[0].toUpperCase();
       
