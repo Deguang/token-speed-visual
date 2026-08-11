@@ -20,7 +20,7 @@ export function ResearchScreen() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(import.meta.env.BASE_URL + 'data/research.json')
+    fetch(import.meta.env.BASE_URL + `data/research.json?t=${Date.now()}`)
       .then(res => res.json())
       .then(data => {
         setArticles(data);

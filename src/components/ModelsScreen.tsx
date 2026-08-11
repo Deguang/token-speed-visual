@@ -33,7 +33,7 @@ export function ModelsScreen({ navigate }: { navigate?: (tab: string, payload?: 
   );
 
   useEffect(() => {
-    fetch(import.meta.env.BASE_URL + 'data/models.json')
+    fetch(import.meta.env.BASE_URL + `data/models.json?t=${Date.now()}`)
       .then(res => res.json())
       .then(data => {
         setModels(data);

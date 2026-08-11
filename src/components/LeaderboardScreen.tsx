@@ -20,7 +20,7 @@ export function LeaderboardScreen() {
   const [dataSource, setDataSource] = useState<'realtime' | 'official'>('realtime');
 
   useEffect(() => {
-    fetch(import.meta.env.BASE_URL + 'data/leaderboard.json')
+    fetch(import.meta.env.BASE_URL + `data/leaderboard.json?t=${Date.now()}`)
       .then(res => res.json())
       .then(res => {
         setData(res);
