@@ -17,6 +17,7 @@ interface LeaderboardEntry {
 export function LeaderboardScreen() {
   const [data, setData] = useState<LeaderboardEntry[]>([]);
   const [loading, setLoading] = useState(true);
+  const [dataSource, setDataSource] = useState<'realtime' | 'official'>('realtime');
 
   useEffect(() => {
     fetch(import.meta.env.BASE_URL + 'data/leaderboard.json')
@@ -42,15 +43,24 @@ export function LeaderboardScreen() {
           <div>
             <h1 className="font-display-lg text-display-lg text-on-surface mb-2 tracking-tight">Global Leaderboard</h1>
             <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl">
-              Real-time ranking based on the <span className="text-secondary font-semibold">Efficiency Score</span> (a weighted composite of inference speed, latency, and cost per million tokens).
+              {dataSource === 'realtime' 
+                ? <><span className="text-secondary font-semibold">Real-time ranking</span> based on the Efficiency Score (weighted composite of speed, latency, and cost).</>
+                : <><span className="text-on-surface font-semibold">Official benchmarks</span> sorted strictly by raw inference speed (Tokens per second).</>
+              }
             </p>
           </div>
           <div className="flex bg-surface-container-highest/50 p-1 rounded-xl border border-outline-variant backdrop-blur-md self-start md:self-auto">
-            <button className="px-4 py-2 rounded-lg bg-surface border border-outline text-on-surface font-body-sm text-body-sm shadow-[0_2px_10px_rgba(0,0,0,0.2)] flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-tertiary glow-pulse"></span>
+            <button 
+              onClick={() => setDataSource('realtime')}
+              className={`px-4 py-2 rounded-lg font-body-sm text-body-sm transition-colors flex items-center gap-2 ${dataSource === 'realtime' ? 'bg-surface border border-outline text-on-surface shadow-[0_2px_10px_rgba(0,0,0,0.2)]' : 'text-on-surface-variant hover:text-on-surface'}`}
+            >
+              {dataSource === 'realtime' && <span className="w-2 h-2 rounded-full bg-tertiary glow-pulse"></span>}
               Real-time (Live User Data)
             </button>
-            <button className="px-4 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors">
+            <button 
+              onClick={() => setDataSource('official')}
+              className={`px-4 py-2 rounded-lg font-body-sm text-body-sm transition-colors ${dataSource === 'official' ? 'bg-surface border border-outline text-on-surface shadow-[0_2px_10px_rgba(0,0,0,0.2)]' : 'text-on-surface-variant hover:text-on-surface'}`}
+            >
               Official Benchmarks
             </button>
           </div>
@@ -101,7 +111,9 @@ export function LeaderboardScreen() {
                 {loading ? (
                   <tr><td colSpan={7} className="py-4 px-6 text-center text-on-surface-variant font-data-mono-sm">Loading dynamic leaderboard data...</td></tr>
                 ) : (
-                  data.map((row, idx) => (
+                  [...data].sort((a, b) => dataSource === 'realtime' ? b.efficiencyScore - a.efficiencyScore : b.tps - a.tps)
+                    .map((item, idx) => ({ ...item, rank: idx + 1 }))
+                    .map((row, idx) => (
                     <tr key={row.id} className={`hover:bg-surface-container-highest/30 transition-colors group animate-fade-in stagger-${Math.min(idx + 1, 6)}`}>
                       <td className="py-4 px-6">
                         <div className="flex items-center gap-2">
