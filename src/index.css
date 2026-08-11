@@ -4,8 +4,9 @@
 
 @layer base {
   body {
-    background-color: #051424; /* Theme background */
-    color: #d4e4fa;
+    background-color: #09090b; /* Zinc 950 background */
+    color: #fafafa;
+    font-family: 'Inter', sans-serif;
     /* Premium dark noise/gradient background */
     background-image: radial-gradient(circle at top right, rgba(0, 166, 224, 0.05), transparent 40%),
                       radial-gradient(circle at bottom left, rgba(78, 222, 163, 0.05), transparent 40%);
