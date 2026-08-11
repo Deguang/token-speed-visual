@@ -73,8 +73,23 @@ export function ModelsScreen({ navigate }: { navigate?: (tab: string, payload?: 
           )}
           {filteredModels.map((model, idx) => (
             <div key={model.id} className={`glass-card rounded-xl p-card-padding flex flex-col gap-stack-md hover:border-secondary/50 transition-colors group relative overflow-hidden animate-fade-in stagger-${Math.min(idx + 1, 6)} ${model.name.includes('Claude') ? 'active-glow border-secondary/30' : ''}`}>
-              <div className={`absolute inset-0 bg-gradient-to-br from-${model.color}-500/5 to-transparent ${model.name.includes('Claude') ? '' : 'opacity-0 group-hover:opacity-100 transition-opacity'}`}></div>
-              <div className="flex flex-col gap-3 z-10">
+              <div className={`absolute inset-0 bg-gradient-to-br from-${model.color}-500/5 to-transparent z-0 ${model.name.includes('Claude') ? '' : 'opacity-0 group-hover:opacity-100 transition-opacity duration-500'}`}></div>
+              
+              {/* Giant Typographic Diagonal Logo Watermark */}
+              <div 
+                className="absolute -bottom-10 -right-10 font-display-lg font-black text-white/[0.04] text-[180px] leading-none pointer-events-none select-none z-0 transition-all duration-700 ease-out group-hover:scale-110 group-hover:-translate-x-2 group-hover:-translate-y-2 group-hover:rotate-[-5deg]"
+                style={{ WebkitMaskImage: 'linear-gradient(to top left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 60%)', maskImage: 'linear-gradient(to top left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 60%)' }}
+              >
+                {model.provider.substring(0, 1).toUpperCase()}
+              </div>
+              <div 
+                className="absolute bottom-4 right-4 font-display-lg font-bold text-white/[0.06] text-[24px] pointer-events-none select-none z-0 tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ WebkitMaskImage: 'linear-gradient(to top left, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%)', maskImage: 'linear-gradient(to top left, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%)' }}
+              >
+                {model.provider}
+              </div>
+
+              <div className="flex flex-col gap-3 z-10 relative">
                 <div>
                   <div className="flex items-center justify-between gap-2">
                     <h3 className="font-headline-md text-headline-sm md:text-headline-md text-on-surface group-hover:text-secondary transition-colors line-clamp-1" title={model.name}>{model.name}</h3>
@@ -86,7 +101,7 @@ export function ModelsScreen({ navigate }: { navigate?: (tab: string, payload?: 
                   <span className={`bg-${model.color}-500/10 text-${model.color}-400 border border-${model.color}-500/20 px-2 py-1 rounded font-data-mono-sm text-[10px] md:text-xs uppercase tracking-wider max-w-full truncate block`} title={model.modality}>{model.modality}</span>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-stack-sm z-10 mt-auto pt-4">
+              <div className="grid grid-cols-2 gap-stack-sm z-10 relative mt-auto pt-4">
                 <div className="flex flex-col">
                   <span className="font-data-mono-sm text-[10px] md:text-xs text-on-surface-variant uppercase">Context</span>
                   <span className={`font-data-mono-sm text-sm md:text-base text-on-surface ${model.name.includes('Claude') ? 'text-secondary' : ''}`}>{model.context}</span>
