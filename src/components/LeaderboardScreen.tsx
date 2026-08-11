@@ -32,7 +32,7 @@ export function LeaderboardScreen() {
   }, []);
 
   return (
-    <main className="flex-1 md:ml-64 flex flex-col h-full overflow-y-auto relative bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-surface-container/40 via-background to-background">
+    <main className="flex-1 md:ml-64 pt-24 flex flex-col h-full overflow-y-auto relative bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-surface-container/40 via-background to-background">
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30 mix-blend-screen">
         <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-secondary/10 blur-[120px]"></div>
         <div className="absolute top-[40%] -right-[10%] w-[40%] h-[60%] rounded-full bg-tertiary/10 blur-[150px]"></div>

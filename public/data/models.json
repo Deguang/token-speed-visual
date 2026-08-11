@@ -1,42 +1,302 @@
 [
   {
-    "id": "gpt-4o",
-    "name": "GPT-4o",
-    "provider": "OpenAI",
-    "modality": "Omni",
-    "context": "128k",
-    "params": "Undisclosed",
-    "release": "May 2024",
-    "color": "emerald"
+    "id": "anthropic/claude-opus-5-fast",
+    "name": "Claude Opus 5 (Fast)",
+    "provider": "ANTHROPIC",
+    "modality": "text+image+file->text",
+    "context": "1000K",
+    "params": "Auto",
+    "release": "2026-07-24",
+    "color": "amber"
   },
   {
-    "id": "claude-3-5-sonnet",
-    "name": "Claude 3.5 Sonnet",
-    "provider": "Anthropic",
-    "modality": "Text+Vision",
-    "context": "200k",
-    "params": "Undisclosed",
-    "release": "Jun 2024",
+    "id": "anthropic/claude-opus-5",
+    "name": "Claude Opus 5",
+    "provider": "ANTHROPIC",
+    "modality": "text+image+file->text",
+    "context": "1000K",
+    "params": "Auto",
+    "release": "2026-07-24",
+    "color": "amber"
+  },
+  {
+    "id": "anthropic/claude-opus-5:batch",
+    "name": "Claude Opus 5 (batch)",
+    "provider": "ANTHROPIC",
+    "modality": "text+image+file->text",
+    "context": "1000K",
+    "params": "Auto",
+    "release": "2026-07-24",
+    "color": "amber"
+  },
+  {
+    "id": "google/gemini-3.6-flash",
+    "name": "Google: Gemini 3.6 Flash",
+    "provider": "GOOGLE",
+    "modality": "text+image+file+audio+video->text",
+    "context": "1049K",
+    "params": "Auto",
+    "release": "2026-07-21",
     "color": "purple"
   },
   {
-    "id": "llama-3-1-405b",
-    "name": "Llama 3.1 405B",
-    "provider": "Meta",
-    "modality": "Open Text",
-    "context": "128k",
-    "params": "405B",
-    "release": "Jul 2024",
-    "color": "indigo"
+    "id": "google/gemini-3.6-flash:batch",
+    "name": "Google: Gemini 3.6 Flash (batch)",
+    "provider": "GOOGLE",
+    "modality": "text+image+file+audio+video->text",
+    "context": "1049K",
+    "params": "Auto",
+    "release": "2026-07-21",
+    "color": "purple"
   },
   {
-    "id": "gemini-1-5-pro",
-    "name": "Gemini 1.5 Pro",
-    "provider": "Google",
-    "modality": "Multimodal",
-    "context": "2M",
-    "params": "Undisclosed",
-    "release": "May 2024",
-    "color": "blue"
+    "id": "google/gemini-3.5-flash-lite",
+    "name": "Google: Gemini 3.5 Flash Lite",
+    "provider": "GOOGLE",
+    "modality": "text+image+file+audio+video->text",
+    "context": "1049K",
+    "params": "Auto",
+    "release": "2026-07-21",
+    "color": "purple"
+  },
+  {
+    "id": "google/gemini-3.5-flash-lite:batch",
+    "name": "Google: Gemini 3.5 Flash Lite (batch)",
+    "provider": "GOOGLE",
+    "modality": "text+image+file+audio+video->text",
+    "context": "1049K",
+    "params": "Auto",
+    "release": "2026-07-21",
+    "color": "purple"
+  },
+  {
+    "id": "openai/gpt-5.6-luna-pro",
+    "name": "OpenAI: GPT-5.6 Luna Pro",
+    "provider": "OPENAI",
+    "modality": "text+image+file->text",
+    "context": "1050K",
+    "params": "Auto",
+    "release": "2026-07-09",
+    "color": "emerald"
+  },
+  {
+    "id": "openai/gpt-5.6-luna-pro:batch",
+    "name": "OpenAI: GPT-5.6 Luna Pro (batch)",
+    "provider": "OPENAI",
+    "modality": "text+image+file->text",
+    "context": "1050K",
+    "params": "Auto",
+    "release": "2026-07-09",
+    "color": "emerald"
+  },
+  {
+    "id": "openai/gpt-5.6-luna",
+    "name": "OpenAI: GPT-5.6 Luna",
+    "provider": "OPENAI",
+    "modality": "text+image+file->text",
+    "context": "1050K",
+    "params": "Auto",
+    "release": "2026-07-09",
+    "color": "emerald"
+  },
+  {
+    "id": "openai/gpt-5.6-luna:batch",
+    "name": "OpenAI: GPT-5.6 Luna (batch)",
+    "provider": "OPENAI",
+    "modality": "text+image+file->text",
+    "context": "1050K",
+    "params": "Auto",
+    "release": "2026-07-09",
+    "color": "emerald"
+  },
+  {
+    "id": "openai/gpt-5.6-terra-pro",
+    "name": "OpenAI: GPT-5.6 Terra Pro",
+    "provider": "OPENAI",
+    "modality": "text+image+file->text",
+    "context": "1050K",
+    "params": "Auto",
+    "release": "2026-07-09",
+    "color": "emerald"
+  },
+  {
+    "id": "openai/gpt-5.6-terra-pro:batch",
+    "name": "OpenAI: GPT-5.6 Terra Pro (batch)",
+    "provider": "OPENAI",
+    "modality": "text+image+file->text",
+    "context": "1050K",
+    "params": "Auto",
+    "release": "2026-07-09",
+    "color": "emerald"
+  },
+  {
+    "id": "openai/gpt-5.6-terra",
+    "name": "OpenAI: GPT-5.6 Terra",
+    "provider": "OPENAI",
+    "modality": "text+image+file->text",
+    "context": "1050K",
+    "params": "Auto",
+    "release": "2026-07-09",
+    "color": "emerald"
+  },
+  {
+    "id": "openai/gpt-5.6-terra:batch",
+    "name": "OpenAI: GPT-5.6 Terra (batch)",
+    "provider": "OPENAI",
+    "modality": "text+image+file->text",
+    "context": "1050K",
+    "params": "Auto",
+    "release": "2026-07-09",
+    "color": "emerald"
+  },
+  {
+    "id": "openai/gpt-5.6-sol-pro",
+    "name": "OpenAI: GPT-5.6 Sol Pro",
+    "provider": "OPENAI",
+    "modality": "text+image+file->text",
+    "context": "1050K",
+    "params": "Auto",
+    "release": "2026-07-09",
+    "color": "emerald"
+  },
+  {
+    "id": "openai/gpt-5.6-sol-pro:batch",
+    "name": "OpenAI: GPT-5.6 Sol Pro (batch)",
+    "provider": "OPENAI",
+    "modality": "text+image+file->text",
+    "context": "1050K",
+    "params": "Auto",
+    "release": "2026-07-09",
+    "color": "emerald"
+  },
+  {
+    "id": "openai/gpt-5.6-sol",
+    "name": "OpenAI: GPT-5.6 Sol",
+    "provider": "OPENAI",
+    "modality": "text+image+file->text",
+    "context": "1050K",
+    "params": "Auto",
+    "release": "2026-07-09",
+    "color": "emerald"
+  },
+  {
+    "id": "openai/gpt-5.6-sol:batch",
+    "name": "OpenAI: GPT-5.6 Sol (batch)",
+    "provider": "OPENAI",
+    "modality": "text+image+file->text",
+    "context": "1050K",
+    "params": "Auto",
+    "release": "2026-07-09",
+    "color": "emerald"
+  },
+  {
+    "id": "anthropic/claude-sonnet-5",
+    "name": "Anthropic: Claude Sonnet 5",
+    "provider": "ANTHROPIC",
+    "modality": "text+image+file->text",
+    "context": "1000K",
+    "params": "Auto",
+    "release": "2026-06-30",
+    "color": "amber"
+  },
+  {
+    "id": "anthropic/claude-sonnet-5:batch",
+    "name": "Anthropic: Claude Sonnet 5 (batch)",
+    "provider": "ANTHROPIC",
+    "modality": "text+image+file->text",
+    "context": "1000K",
+    "params": "Auto",
+    "release": "2026-06-30",
+    "color": "amber"
+  },
+  {
+    "id": "google/gemini-3.1-flash-lite-image",
+    "name": "Google: Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image)",
+    "provider": "GOOGLE",
+    "modality": "text+image->text+image",
+    "context": "66K",
+    "params": "Auto",
+    "release": "2026-06-30",
+    "color": "purple"
+  },
+  {
+    "id": "google/gemini-3.1-flash-image",
+    "name": "Google: Nano Banana 2 (Gemini 3.1 Flash Image)",
+    "provider": "GOOGLE",
+    "modality": "text+image->text+image",
+    "context": "131K",
+    "params": "Auto",
+    "release": "2026-06-18",
+    "color": "purple"
+  },
+  {
+    "id": "google/gemini-3-pro-image",
+    "name": "Google: Nano Banana Pro (Gemini 3 Pro Image)",
+    "provider": "GOOGLE",
+    "modality": "text+image->text+image",
+    "context": "131K",
+    "params": "Auto",
+    "release": "2026-06-18",
+    "color": "purple"
+  },
+  {
+    "id": "~anthropic/claude-fable-latest",
+    "name": "Anthropic: Claude Fable Latest",
+    "provider": "~ANTHROPIC",
+    "modality": "text+image+file->text",
+    "context": "1000K",
+    "params": "Auto",
+    "release": "2026-06-09",
+    "color": "amber"
+  },
+  {
+    "id": "anthropic/claude-fable-5",
+    "name": "Anthropic: Claude Fable 5",
+    "provider": "ANTHROPIC",
+    "modality": "text+image+file->text",
+    "context": "1000K",
+    "params": "Auto",
+    "release": "2026-06-09",
+    "color": "amber"
+  },
+  {
+    "id": "anthropic/claude-fable-5:batch",
+    "name": "Anthropic: Claude Fable 5 (batch)",
+    "provider": "ANTHROPIC",
+    "modality": "text+image+file->text",
+    "context": "1000K",
+    "params": "Auto",
+    "release": "2026-06-09",
+    "color": "amber"
+  },
+  {
+    "id": "anthropic/claude-opus-4.8-fast",
+    "name": "Anthropic: Claude Opus 4.8 (Fast)",
+    "provider": "ANTHROPIC",
+    "modality": "text+image+file->text",
+    "context": "1000K",
+    "params": "Auto",
+    "release": "2026-05-27",
+    "color": "amber"
+  },
+  {
+    "id": "anthropic/claude-opus-4.8",
+    "name": "Anthropic: Claude Opus 4.8",
+    "provider": "ANTHROPIC",
+    "modality": "text+image+file->text",
+    "context": "1000K",
+    "params": "Auto",
+    "release": "2026-05-27",
+    "color": "amber"
+  },
+  {
+    "id": "anthropic/claude-opus-4.8:batch",
+    "name": "Anthropic: Claude Opus 4.8 (batch)",
+    "provider": "ANTHROPIC",
+    "modality": "text+image+file->text",
+    "context": "1000K",
+    "params": "Auto",
+    "release": "2026-05-27",
+    "color": "amber"
   }
 ]
