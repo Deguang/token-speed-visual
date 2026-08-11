@@ -64,12 +64,17 @@ export function BYOKScreen() {
 <div className="relative z-10 flex flex-col md:flex-row gap-gutter">
 <div className="flex-1 space-y-4">
 <div>
-<label className="block font-headline-sm text-headline-sm text-on-surface mb-2">API Provider</label>
+<label className="block font-headline-sm text-headline-sm text-on-surface mb-2">API Provider / Inference Node</label>
 <select className="w-full bg-surface-container border border-outline-variant rounded-lg px-4 py-3 text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none appearance-none">
-<option>OpenAI</option>
-<option>Anthropic</option>
+<option>OpenRouter (Aggregator)</option>
+<option>OpenAI (Enterprise)</option>
+<option>Anthropic (Claude API)</option>
 <option>Google Vertex AI</option>
-<option>Groq</option>
+<option>Groq (LPU Inference)</option>
+<option>Cerebras (CS-3 Systems)</option>
+<option>xAI (Grok API)</option>
+<option>Together AI</option>
+<option>Mistral La Plateforme</option>
 </select>
 </div>
 <div>
