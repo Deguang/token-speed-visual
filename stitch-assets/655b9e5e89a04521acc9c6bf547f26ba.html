@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Research &amp; Trends - Velocity.io</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#c6c6cd",
+                      "surface-container-lowest": "#010f1f",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "secondary-fixed": "#c4e7ff",
+                      "surface-container-low": "#0d1c2d",
+                      "on-surface": "#d4e4fa",
+                      "primary-fixed-dim": "#bec6e0",
+                      "on-tertiary": "#003824",
+                      "secondary-container": "#00a6e0",
+                      "on-primary": "#283044",
+                      "surface-container": "#122131",
+                      "primary": "#bec6e0",
+                      "surface-bright": "#2c3a4c",
+                      "outline-variant": "#45464d",
+                      "on-background": "#d4e4fa",
+                      "on-error": "#690005",
+                      "on-primary-container": "#798098",
+                      "primary-fixed": "#dae2fd",
+                      "background": "#051424",
+                      "secondary-fixed-dim": "#7bd0ff",
+                      "outline": "#909097",
+                      "on-primary-fixed": "#131b2e",
+                      "tertiary-fixed-dim": "#4edea3",
+                      "on-error-container": "#ffdad6",
+                      "secondary": "#7bd0ff",
+                      "surface-tint": "#bec6e0",
+                      "on-tertiary-fixed": "#002113",
+                      "error-container": "#93000a",
+                      "error": "#ffb4ab",
+                      "primary-container": "#0f172a",
+                      "surface": "#051424",
+                      "surface-dim": "#051424",
+                      "inverse-on-surface": "#233143",
+                      "on-secondary": "#00354a",
+                      "on-secondary-fixed-variant": "#004c69",
+                      "on-tertiary-fixed-variant": "#005236",
+                      "tertiary-container": "#001c10",
+                      "tertiary-fixed": "#6ffbbe",
+                      "surface-container-highest": "#273647",
+                      "inverse-primary": "#565e74",
+                      "on-tertiary-container": "#009365",
+                      "on-secondary-fixed": "#001e2c",
+                      "surface-container-high": "#1c2b3c",
+                      "surface-variant": "#273647",
+                      "tertiary": "#4edea3",
+                      "on-secondary-container": "#00374d",
+                      "inverse-surface": "#d4e4fa"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "card-padding": "20px",
+                      "stack-sm": "8px",
+                      "stack-lg": "32px",
+                      "unit": "4px",
+                      "gutter": "16px",
+                      "container-margin": "24px"
+              },
+              "fontFamily": {
+                      "headline-md-mobile": [
+                              "Geist"
+                      ],
+                      "data-mono-lg": [
+                              "JetBrains Mono"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Geist"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "data-mono-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "display-lg": [
+                              "Geist"
+                      ],
+                      "headline-sm": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md-mobile": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "data-mono-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "data-mono-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-sm": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glow-hover:hover {
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #7bd0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/50 backdrop-blur-xl border-b border-white/10 shadow-[0_0_15px_rgba(56,189,248,0.1)] flex justify-between items-center px-container-margin py-4 w-full">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tighter">Velocity.io</span>
+<div class="hidden md:flex gap-6 items-center">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-surface-variant" style="font-size: 18px;">search</span>
+<input class="bg-black/20 border border-white/10 rounded-full py-1.5 pl-9 pr-4 text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors w-48" placeholder="Search..." type="text"/>
+</div>
+<a class="text-on-surface-variant font-headline-sm text-headline-sm hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform" href="#">Visualizer</a>
+<a class="text-on-surface-variant font-headline-sm text-headline-sm hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform" href="#">Benchmarks</a>
+<a class="text-secondary border-b-2 border-secondary pb-1 font-headline-sm text-headline-sm hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform" href="#">Reports</a>
+<a class="text-on-surface-variant font-headline-sm text-headline-sm hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform" href="#">Leaderboard</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-secondary text-on-secondary font-headline-sm text-headline-sm px-4 py-1.5 rounded-full hover:bg-secondary-fixed transition-colors active:scale-95">Live</button>
+<div class="flex gap-2">
+<button class="text-on-surface-variant hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="text-on-surface-variant hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-white/10" data-alt="A small, stylized circular avatar image for a user profile in a high-tech dashboard, dark mode aesthetic, minimalist and abstract." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI09zTr-4_snR7ujugP4K6UloTT3lqpLER5abO_HP2L741RACra3fPobeEpxGzvMI6YJqNSxs8kRXs-1G5187uv-Rk5WpM28AWKUvQ9sc85MFRXyEfeev60TcEgMG4AqAxVmW3VOEccCdlIcLXbybRDfw2Xn3rbYvy2MKxKm6x-6lI5-69SON6lij-bvs4qf-i5-MoYjhQES9vVQmrU-hHoda8GsN6QDs5xE7IyRVNAwh7D1HNfbIhoQ"/>
+</div>
+</nav>
+<div class="flex flex-1 pt-[72px]">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col py-stack-md bg-surface-container/30 backdrop-blur-lg border-r border-white/5 w-64 fixed left-0 top-16 h-[calc(100vh-64px)] z-40">
+<div class="px-container-margin pb-stack-lg border-b border-white/5 mb-stack-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-bright flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-secondary">monitoring</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Performance</h2>
+<p class="font-data-mono-sm text-data-mono-sm text-on-surface-variant">v2.4 Stable</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all active:translate-x-1 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">speed</span>
+                    Token Velocity
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all active:translate-x-1 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">timer</span>
+                    Latency
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all active:translate-x-1 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">query_stats</span>
+                    Throughput
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all active:translate-x-1 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">memory</span>
+                    Model Specs
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all active:translate-x-1 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">history</span>
+                    Historical
+                </a>
+</nav>
+<div class="px-container-margin mt-auto mb-stack-md">
+<button class="w-full py-2 border border-white/10 rounded-lg text-on-surface font-headline-sm text-headline-sm hover:border-secondary hover:text-secondary transition-colors">Export Data</button>
+</div>
+<div class="border-t border-white/5 pt-stack-md px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all active:translate-x-1 font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined" style="font-size: 18px;">description</span>
+                    Documentation
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all active:translate-x-1 font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined" style="font-size: 18px;">help</span>
+                    Support
+                </a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 p-container-margin md:p-stack-lg max-w-7xl mx-auto w-full">
+<header class="mb-stack-lg">
+<h1 class="font-display-lg text-display-lg text-gradient mb-2">Research &amp; Trends</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Deep dives, architectural analysis, and velocity benchmarks for next-generation Large Language Models.</p>
+</header>
+<!-- Featured Article -->
+<section class="mb-stack-lg">
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col md:flex-row group glow-hover transition-all duration-300 cursor-pointer">
+<div class="md:w-1/2 h-64 md:h-auto relative">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A highly abstract, dark mode data visualization showing streams of glowing blue and cyan particles representing token velocity, deep atmospheric background, tech-focused, high contrast." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDXMDFqdiIBjRVM-nI4noRWc0VdO6nI3MljsbC0EYHDjkL6RGFyzuv6f7eNv-44aEH8xi5JBxtw2K_nLdnbgS6kRS0Yj3NMe_Ld9NMPw6WlOuZP5EjRqG90D6l1UD4A-j1oiuJCvRslbYk4w7IQqMFq8C4FEYNr8kDn9PKXAR72slEoDEGcevX_MC1WSIG08X1cB_LkvJSWNHxwqlwcW7qYNJaFKDMZY7gsA74z3WEDJ4hnAAUar9hHQ')"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent to-surface-container-low hidden md:block"></div>
+<div class="absolute top-4 left-4 bg-primary-container border border-primary/30 px-2 py-1 rounded text-primary font-data-mono-sm text-data-mono-sm flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 14px;">star</span> FEATURED
+                        </div>
+</div>
+<div class="p-card-padding md:p-stack-lg md:w-1/2 flex flex-col justify-center bg-surface-container-low">
+<div class="flex items-center gap-2 mb-3">
+<span class="text-tertiary bg-tertiary/10 px-2 py-0.5 rounded text-xs font-data-mono-sm text-data-mono-sm uppercase tracking-wider border border-tertiary/20">Optimization</span>
+<span class="text-on-surface-variant font-data-mono-sm text-data-mono-sm">12 Min Read</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-3 group-hover:text-secondary transition-colors">The Rise of Small Language Models: Edge Inference Optimization</h2>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-6 line-clamp-3">Analyzing the throughput and latency trade-offs in sub-10B parameter models deployed on edge hardware, utilizing dynamic quantization and speculative decoding.</p>
+<div class="flex items-center gap-3 mt-auto">
+<img alt="Author" class="w-8 h-8 rounded-full border border-white/10" data-alt="A small, stylized circular avatar for an author, dark mode, tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAasgAjs-zU9Dpf2B2pz95stRB7Nok3qaxsjlOSdVSORWIKHRV0Pm6i6daCMRGtCjeh7R_mDbmjhtyu_XcK27vQJiiCqD244QaLo-2QrdqYNbawS5c7reqMoznBh4-MEPH2uJmHjbxxq_V-AnLhe8Wq0Sl5iLNF2CcD_lyY3u79g8lhyFZlGuKakSyRJgodCM75lNiLn46uGSzkdJolUGwxxJXyQkZa1ern9sKPttOvcB_zUFw0F-tvhA"/>
+<div>
+<p class="font-headline-sm text-sm text-on-surface leading-tight">Dr. Elena Rostova</p>
+<p class="font-data-mono-sm text-data-mono-sm text-on-surface-variant leading-tight">Lead Research Scientist</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-stack-lg">
+<!-- Article Card 1 -->
+<article class="glass-panel rounded-xl overflow-hidden flex flex-col group glow-hover transition-all duration-300 cursor-pointer">
+<div class="h-48 relative border-b border-white/5">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-70 group-hover:opacity-100 transition-opacity mix-blend-screen" data-alt="Abstract dark mode 3D render of layered glowing green and blue glass planes representing neural network architecture layers, precise analytical aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBHatsovryQmj2VQkKm6zOfuJUcQKFQWsHAsMYUdPet1rVlo2Hz-N86m_0WoW9zV5fE9ZSErQtqXR3hzfn3CWLJDcNOWbANhAmjCqoit19GZOFcCMvxTXFHwnYl_eNyQLDmVcBkYEfnsejducSYcPXYpu03xkh-CMNDH3uxshNWbNNWz1kd2zvqPlYJNM094tM7FF_K_ZQ7D_CjUe3ygmtW4odj_u57U23ShAG9kM9P8zVDS-EZKY_vkA')"></div>
+</div>
+<div class="p-card-padding flex-1 flex flex-col">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-secondary bg-secondary/10 px-2 py-0.5 rounded text-xs font-data-mono-sm text-data-mono-sm uppercase tracking-wider border border-secondary/20">Architecture</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">MoE Scaling Laws in v3</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-4 flex-1 line-clamp-2">Evaluating the router efficiency and active parameter ratio in the latest Mixture of Experts iterations.</p>
+<div class="font-data-mono-sm text-data-mono-sm text-outline flex items-center justify-between mt-auto">
+<span>Oct 24, 2023</span>
+<span class="flex items-center gap-1 group-hover:text-secondary transition-colors">Read <span class="material-symbols-outlined" style="font-size: 14px;">arrow_forward</span></span>
+</div>
+</div>
+</article>
+<!-- Article Card 2 -->
+<article class="glass-panel rounded-xl overflow-hidden flex flex-col group glow-hover transition-all duration-300 cursor-pointer">
+<div class="h-48 relative border-b border-white/5">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full opacity-70 group-hover:opacity-100 transition-opacity mix-blend-screen" data-alt="Minimalist dark mode visualization of a line chart showing rapid upward trajectory, glowing red and orange lines against deep navy background, sharp technical look." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAwkHySbma7EJBisI7gxuDfG4G-QgcMtz7TjdjMtjafm_FbQOtXWeIHAo6oE2y_8SS5ry4xgfDodbPRvRJMwTThMFbejRdIubcu7BRxsCetP6gE7WZozHN2nI2ZmTEpNKy9WfJiXvZ0rnyiY69j7CEOez_6LKMk0QY4jBA7i66w2rhkmfSg4F2S9q_ibyAWUWn7E7B2BJjt5we8uW1R-qKkc18q7kTKxb1IvosQIo7hdl6Z_U-luwN_cQ')"></div>
+</div>
+<div class="p-card-padding flex-1 flex flex-col">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-error bg-error/10 px-2 py-0.5 rounded text-xs font-data-mono-sm text-data-mono-sm uppercase tracking-wider border border-error/20">Benchmarks</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">Throughput Bottlenecks at Scale</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm mb-4 flex-1 line-clamp-2">Identifying the key constraints in multi-GPU setups when exceeding 100k tokens/second generation rates.</p>
+<div class="font-data-mono-sm text-data-mono-sm text-outline flex items-center justify-between mt-auto">
+<span>Oct 18, 2023</span>
+<span class="flex items-center gap-1 group-hover:text-secondary transition-colors">Read <span class="material-symbols-outlined" style="font-size: 14px;">arrow_forward</span></span>
+</div>
+</div>
+</article>
+<!-- Newsletter Widget -->
+<div class="glass-panel rounded-xl p-card-padding flex flex-col bg-surface-container-high/80 relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-secondary/20 rounded-full blur-3xl"></div>
+<div class="mb-4">
+<div class="w-12 h-12 rounded-full bg-surface-bright border border-white/10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary" style="font-size: 24px;">mail</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Velocity Briefing</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Weekly technical insights and benchmark updates delivered directly to your inbox.</p>
+</div>
+<form class="mt-auto space-y-3">
+<input class="w-full bg-black/30 border border-outline-variant rounded-lg px-4 py-2 text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="Email address" type="email"/>
+<button class="w-full bg-secondary text-on-secondary font-headline-sm text-sm py-2 rounded-lg hover:bg-secondary-fixed transition-colors" type="button">Subscribe</button>
+</form>
+</div>
+</div>
+<!-- Tech Notes List -->
+<section class="glass-panel rounded-xl p-card-padding mb-stack-lg">
+<div class="flex items-center justify-between mb-4 border-b border-white/5 pb-4">
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">description</span> Technical Notes
+                    </h2>
+<button class="text-secondary font-data-mono-sm text-data-mono-sm hover:text-secondary-fixed transition-colors">View All</button>
+</div>
+<div class="space-y-1">
+<a class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors group" href="#">
+<div class="flex items-center gap-4">
+<span class="font-data-mono-sm text-data-mono-sm text-outline w-24">TN-042</span>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-secondary transition-colors">KV Cache Management in Long Contexts</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary" style="font-size: 16px;">download</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors group" href="#">
+<div class="flex items-center gap-4">
+<span class="font-data-mono-sm text-data-mono-sm text-outline w-24">TN-041</span>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-secondary transition-colors">Triton Kernel Optimization for Flash Attention</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary" style="font-size: 16px;">download</span>
+</a>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full mt-auto border-t border-outline-variant flex flex-col md:flex-row justify-between items-center px-container-margin py-stack-lg w-full z-50 relative">
+<div class="flex items-center gap-4 mb-4 md:mb-0">
+<span class="font-headline-sm text-headline-sm text-on-surface">Velocity.io</span>
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface-variant">© 2024 Velocity.io LLM Infrastructure</span>
+</div>
+<div class="flex gap-6">
+<a class="font-data-mono-sm text-data-mono-sm text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-data-mono-sm text-data-mono-sm text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Terms of Service</a>
+<a class="font-data-mono-sm text-data-mono-sm text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">API Docs</a>
+<a class="font-data-mono-sm text-data-mono-sm text-on-surface-variant hover:text-secondary transition-colors duration-200 flex items-center gap-1" href="#">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim inline-block animate-pulse"></span> Status
+            </a>
+</div>
+</footer>
+</body></html>

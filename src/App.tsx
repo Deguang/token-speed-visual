@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { DashboardScreen } from './components/DashboardScreen';
 import { BYOKScreen } from './components/BYOKScreen';
 import { DynamicDemoScreen } from './components/DynamicDemoScreen';
+import { BenchmarksScreen } from './components/BenchmarksScreen';
+import { ResearchScreen } from './components/ResearchScreen';
+import { ModelsScreen } from './components/ModelsScreen';
+import { LeaderboardScreen } from './components/LeaderboardScreen';
 
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -15,17 +19,21 @@ function App() {
         </div>
         <div className="flex items-center gap-stack-lg">
           <button 
-            onClick={() => setActiveTab('dashboard')} 
-            className={`font-headline-sm text-headline-sm transition-colors ${activeTab === 'dashboard' ? 'text-secondary border-b-2 border-secondary pb-1' : 'text-on-primary-container hover:text-secondary-fixed-dim'}`}
-          >Dashboard</button>
+            onClick={() => setActiveTab('benchmarks')} 
+            className={`font-headline-sm text-headline-sm transition-colors ${activeTab === 'benchmarks' ? 'text-secondary border-b-2 border-secondary pb-1 scale-95 duration-100' : 'text-on-primary-container hover:text-secondary-fixed-dim'}`}
+          >Benchmarks</button>
           <button 
-            onClick={() => setActiveTab('byok')} 
-            className={`font-headline-sm text-headline-sm transition-colors ${activeTab === 'byok' ? 'text-secondary border-b-2 border-secondary pb-1' : 'text-on-primary-container hover:text-secondary-fixed-dim'}`}
-          >BYOK Benchmarks</button>
+            onClick={() => setActiveTab('models')} 
+            className={`font-headline-sm text-headline-sm transition-colors ${activeTab === 'models' ? 'text-secondary border-b-2 border-secondary pb-1 scale-95 duration-100' : 'text-on-primary-container hover:text-secondary-fixed-dim'}`}
+          >Models</button>
           <button 
-            onClick={() => setActiveTab('demo')} 
-            className={`font-headline-sm text-headline-sm transition-colors ${activeTab === 'demo' ? 'text-secondary border-b-2 border-secondary pb-1' : 'text-on-primary-container hover:text-secondary-fixed-dim'}`}
-          >Dynamic Demo</button>
+            onClick={() => setActiveTab('research')} 
+            className={`font-headline-sm text-headline-sm transition-colors ${activeTab === 'research' ? 'text-secondary border-b-2 border-secondary pb-1 scale-95 duration-100' : 'text-on-primary-container hover:text-secondary-fixed-dim'}`}
+          >Research</button>
+          <button 
+            onClick={() => setActiveTab('leaderboard')} 
+            className={`font-headline-sm text-headline-sm transition-colors ${activeTab === 'leaderboard' ? 'text-secondary border-b-2 border-secondary pb-1 scale-95 duration-100' : 'text-on-primary-container hover:text-secondary-fixed-dim'}`}
+          >Leaderboard</button>
         </div>
         <div className="flex items-center gap-gutter">
           <button className="bg-[#38bdf8] text-black px-4 py-2 rounded-lg font-headline-sm text-headline-sm">Live</button>
@@ -66,10 +74,14 @@ function App() {
       {activeTab === 'dashboard' && <DashboardScreen />}
       {activeTab === 'byok' && <BYOKScreen />}
       {activeTab === 'demo' && <DynamicDemoScreen />}
+      {activeTab === 'benchmarks' && <BenchmarksScreen />}
+      {activeTab === 'research' && <ResearchScreen />}
+      {activeTab === 'models' && <ModelsScreen />}
+      {activeTab === 'leaderboard' && <LeaderboardScreen />}
 
       {/* Footer */}
       <footer className="w-full py-gutter px-container-margin flex flex-wrap justify-between items-center bg-surface-container-lowest border-t border-white/10 z-50 relative">
-        <span className="font-data-mono-sm text-data-mono-sm text-on-surface">© 2024 VELOCITY LLM INFRA. ALL RIGHTS RESERVED.</span>
+        <span className="font-data-mono-sm text-data-mono-sm text-on-surface">© 2026 VELOCITY LLM INFRA. ALL RIGHTS RESERVED.</span>
         <div className="flex gap-gutter font-data-mono-sm text-data-mono-sm text-on-primary-container">
           <a className="hover:text-on-surface" href="#">Methodology</a>
           <a className="hover:text-on-surface" href="#">Documentation</a>

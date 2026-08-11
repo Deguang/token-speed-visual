@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Benchmarks - Velocity.io</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#c6c6cd",
+                        "surface-container-lowest": "#010f1f",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "secondary-fixed": "#c4e7ff",
+                        "surface-container-low": "#0d1c2d",
+                        "on-surface": "#d4e4fa",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-tertiary": "#003824",
+                        "secondary-container": "#00a6e0",
+                        "on-primary": "#283044",
+                        "surface-container": "#122131",
+                        "primary": "#bec6e0",
+                        "surface-bright": "#2c3a4c",
+                        "outline-variant": "#45464d",
+                        "on-background": "#d4e4fa",
+                        "on-error": "#690005",
+                        "on-primary-container": "#798098",
+                        "primary-fixed": "#dae2fd",
+                        "background": "#051424",
+                        "secondary-fixed-dim": "#7bd0ff",
+                        "outline": "#909097",
+                        "on-primary-fixed": "#131b2e",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-error-container": "#ffdad6",
+                        "secondary": "#7bd0ff",
+                        "surface-tint": "#bec6e0",
+                        "on-tertiary-fixed": "#002113",
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab",
+                        "primary-container": "#0f172a",
+                        "surface": "#051424",
+                        "surface-dim": "#051424",
+                        "inverse-on-surface": "#233143",
+                        "on-secondary": "#00354a",
+                        "on-secondary-fixed-variant": "#004c69",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "tertiary-container": "#001c10",
+                        "tertiary-fixed": "#6ffbbe",
+                        "surface-container-highest": "#273647",
+                        "inverse-primary": "#565e74",
+                        "on-tertiary-container": "#009365",
+                        "on-secondary-fixed": "#001e2c",
+                        "surface-container-high": "#1c2b3c",
+                        "surface-variant": "#273647",
+                        "tertiary": "#4edea3",
+                        "on-secondary-container": "#00374d",
+                        "inverse-surface": "#d4e4fa"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "stack-md": "16px",
+                        "card-padding": "20px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "container-margin": "24px"
+                    },
+                    fontFamily: {
+                        "headline-md-mobile": ["Geist"],
+                        "data-mono-lg": ["JetBrains Mono"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Geist"],
+                        "body-md": ["Inter"],
+                        "data-mono-sm": ["JetBrains Mono"],
+                        "display-lg": ["Geist"],
+                        "headline-sm": ["Geist"]
+                    },
+                    fontSize: {
+                        "headline-md-mobile": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "data-mono-lg": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "data-mono-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background-color: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid transparent;
+            border-left: 1px solid transparent;
+            border-right: 1px solid transparent;
+        }
+        
+        .active-glass-card {
+            background-color: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
+        }
+        
+        .pulse-border {
+            position: relative;
+        }
+        .pulse-border::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #38bdf8, transparent);
+            z-index: -1;
+            opacity: 0.3;
+            animation: pulse-border-anim 2s infinite alternate;
+        }
+        
+        @keyframes pulse-border-anim {
+            from { opacity: 0.1; }
+            to { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col pt-16">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/50 backdrop-blur-xl shadow-[0_0_15px_rgba(56,189,248,0.1)] border-b border-white/10 flex justify-between items-center px-container-margin py-4 w-full h-16">
+<div class="font-headline-md text-headline-md font-bold text-on-surface tracking-tighter">
+            Velocity.io
+        </div>
+<div class="hidden md:flex items-center space-x-gutter">
+<a class="font-headline-sm text-headline-sm text-on-surface-variant hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform" href="#">Visualizer</a>
+<a class="font-headline-sm text-headline-sm text-secondary border-b-2 border-secondary pb-1 hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform" href="#">Benchmarks</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform" href="#">Reports</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform" href="#">Leaderboard</a>
+</div>
+<div class="flex items-center space-x-stack-sm">
+<button class="bg-[#38bdf8] text-black px-4 py-1.5 rounded-DEFAULT font-bold text-sm">Live</button>
+<button class="text-on-surface-variant hover:text-secondary transition-colors duration-200 p-2">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="text-on-surface-variant hover:text-secondary transition-colors duration-200 p-2">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-white/10" data-alt="A small, stylized circular profile picture of an AI developer in a dark room illuminated by glowing blue screens, highly detailed, cyberpunk aesthetic, high resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUpjWy85h3geojxa0nE2yhIex4UHqiR95E_o72DkJkR1t9NoMnkZ1a-2nESgIhEBNQNKjfs6SmWo5vTFRhWwOD7BXVaczQSOgsnYGfmM0ym9HMPli4LGt50RZGWNhld9zt0wHSJATWYq_edYelelZiGRDoewfZSHeQqN2TIOjhkNiTPfsFH3LYqOmYGqNDsct-PVnbrw0YT5HXNAA4XPSMzp3cHmf4oweqnZ-NBYYhZ6HJu927lfYtxQ"/>
+</div>
+</nav>
+<div class="flex flex-1">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-surface-container/30 backdrop-blur-lg border-r border-white/5 flex-col py-stack-md z-40">
+<div class="px-container-margin mb-8">
+<div class="font-headline-sm text-headline-sm text-on-surface">Performance</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">v2.4 Stable</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-container-margin py-3 font-body-md text-body-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface active:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">speed</span>
+                    Token Velocity
+                </a>
+<a class="flex items-center px-container-margin py-3 font-body-md text-body-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface active:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">timer</span>
+                    Latency
+                </a>
+<a class="flex items-center px-container-margin py-3 font-body-md text-body-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface active:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">query_stats</span>
+                    Throughput
+                </a>
+<a class="flex items-center px-container-margin py-3 font-body-md text-body-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface active:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">memory</span>
+                    Model Specs
+                </a>
+<a class="flex items-center px-container-margin py-3 font-body-md text-body-md text-on-surface-variant hover:bg-white/5 hover:text-on-surface active:translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">history</span>
+                    Historical
+                </a>
+</nav>
+<div class="px-container-margin mt-auto mb-stack-lg">
+<button class="w-full py-2 border border-[#38bdf8] text-[#38bdf8] rounded-DEFAULT font-body-sm text-body-sm hover:bg-[#38bdf8]/10 transition-colors">Export Data</button>
+</div>
+<div class="border-t border-white/5 pt-4">
+<a class="flex items-center px-container-margin py-2 font-body-sm text-body-sm text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined mr-3 text-[18px]">description</span>
+                    Documentation
+                </a>
+<a class="flex items-center px-container-margin py-2 font-body-sm text-body-sm text-on-surface-variant hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined mr-3 text-[18px]">help</span>
+                    Support
+                </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full lg:ml-64 p-container-margin overflow-y-auto">
+<header class="mb-stack-lg flex justify-between items-end">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface">Model Benchmarks</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-2xl">Comprehensive evaluation across MMLU, GSM8K, HumanEval, and MATH. Data updated real-time via continuous API sampling.</p>
+</div>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-stack-lg">
+<!-- Radar Chart Card -->
+<div class="md:col-span-4 glass-card rounded-xl p-card-padding flex flex-col">
+<h2 class="font-headline-sm text-headline-sm mb-4">Capability Footprint</h2>
+<div class="flex-1 min-h-[300px] flex items-center justify-center relative">
+<!-- Placeholder for complex radar chart -->
+<div class="w-full h-full border border-white/10 rounded-full flex items-center justify-center relative opacity-50">
+<span class="font-data-mono-sm text-data-mono-sm text-on-surface-variant">RADAR_VIZ_TARGET</span>
+</div>
+</div>
+</div>
+<!-- Main Bar Chart Card -->
+<div class="md:col-span-8 glass-card rounded-xl p-card-padding active-glass-card pulse-border flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-sm text-headline-sm">Dataset Performance</h2>
+<div class="flex space-x-2">
+<span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 font-data-mono-sm text-data-mono-sm rounded-sm">GPT-4</span>
+<span class="px-2 py-1 bg-purple-500/10 text-purple-400 font-data-mono-sm text-data-mono-sm rounded-sm">Claude 3.5</span>
+</div>
+</div>
+<div class="flex-1 min-h-[300px] flex flex-col justify-end space-y-4">
+<!-- Bar Chart Rows (Simplified representation) -->
+<div class="space-y-1">
+<div class="flex justify-between font-data-mono-sm text-data-mono-sm text-on-surface-variant"><span class="w-24">MMLU</span> <span>88.7%</span></div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-[#38bdf8] h-full" style="width: 88.7%"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between font-data-mono-sm text-data-mono-sm text-on-surface-variant"><span class="w-24">GSM8K</span> <span>92.0%</span></div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-[#38bdf8] h-full" style="width: 92%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed Table -->
+<div class="glass-card rounded-xl p-card-padding">
+<h2 class="font-headline-sm text-headline-sm mb-4">Detailed Metrics</h2>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-white/10">
+<th class="py-3 px-4 font-body-sm text-body-sm text-on-surface-variant font-medium">Model</th>
+<th class="py-3 px-4 font-body-sm text-body-sm text-on-surface-variant font-medium">MMLU</th>
+<th class="py-3 px-4 font-body-sm text-body-sm text-on-surface-variant font-medium">HumanEval</th>
+<th class="py-3 px-4 font-body-sm text-body-sm text-on-surface-variant font-medium">MATH</th>
+<th class="py-3 px-4 font-body-sm text-body-sm text-on-surface-variant font-medium">Throughput (T/s)</th>
+</tr>
+</thead>
+<tbody class="font-data-mono-sm text-data-mono-sm">
+<tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+<td class="py-3 px-4 font-body-sm text-body-sm text-on-surface flex items-center"><span class="w-2 h-2 rounded-full bg-emerald-400 mr-2"></span>GPT-4 Omni</td>
+<td class="py-3 px-4">88.7</td>
+<td class="py-3 px-4">90.2</td>
+<td class="py-3 px-4">76.6</td>
+<td class="py-3 px-4 text-[#38bdf8]">105.4</td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+<td class="py-3 px-4 font-body-sm text-body-sm text-on-surface flex items-center"><span class="w-2 h-2 rounded-full bg-purple-400 mr-2"></span>Claude 3.5 Sonnet</td>
+<td class="py-3 px-4">88.3</td>
+<td class="py-3 px-4">92.0</td>
+<td class="py-3 px-4">71.1</td>
+<td class="py-3 px-4 text-[#38bdf8]">142.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant w-full mt-auto flex flex-col md:flex-row justify-between items-center px-container-margin py-stack-lg z-50 relative">
+<div class="font-data-mono-sm text-data-mono-sm text-on-surface-variant mb-4 md:mb-0">
+            © 2024 Velocity.io LLM Infrastructure
+        </div>
+<div class="flex space-x-gutter">
+<a class="font-data-mono-sm text-data-mono-sm text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-data-mono-sm text-data-mono-sm text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Terms of Service</a>
+<a class="font-data-mono-sm text-data-mono-sm text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">API Docs</a>
+<a class="font-data-mono-sm text-data-mono-sm text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Status</a>
+</div>
+</footer>
+</body></html>

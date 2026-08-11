@@ -90,14 +90,14 @@ export function DynamicDemoScreen() {
 </thead>
 <tbody className="font-data-mono-sm text-data-mono-sm text-on-surface">
 <tr className="hover:bg-white/5 transition-colors">
-<td className="p-4 border-b border-white/5">2024-05-20 14:30:00</td>
+<td className="p-4 border-b border-white/5">2026-08-11 14:30:00</td>
 <td className="p-4 border-b border-white/5">GPT-4o</td>
 <td className="p-4 border-b border-white/5 text-secondary">84.2</td>
 <td className="p-4 border-b border-white/5">91.5</td>
 <td className="p-4 border-b border-white/5"><span className="text-emerald-400">稳定</span></td>
 </tr>
 <tr className="hover:bg-white/5 transition-colors">
-<td className="p-4 border-b border-white/5">2024-05-20 14:25:00</td>
+<td className="p-4 border-b border-white/5">2026-08-11 14:25:00</td>
 <td className="p-4 border-b border-white/5">Claude 3.5</td>
 <td className="p-4 border-b border-white/5 text-secondary">71.8</td>
 <td className="p-4 border-b border-white/5">75.0</td>

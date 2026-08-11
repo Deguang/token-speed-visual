@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_THREEJS_START:ANIMATION_25 class="fixed inset-0 w-full h-full bg-transparent" -->
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_25" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_25');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  
+let speed = 10;
+let tokens = [];
+let lastTokenTime = 0;
+const containerWidth = container.clientWidth || window.innerWidth;
+const containerHeight = container.clientHeight || window.innerHeight;
+
+const canvas = document.createElement('canvas');
+canvas.width = containerWidth;
+canvas.height = containerHeight;
+container.appendChild(canvas);
+const ctx = canvas.getContext('2d');
+
+// Listen for custom speed events from the UI
+window.addEventListener('update-token-speed', (e) => {
+  speed = e.detail.speed;
+});
+
+const words = ["velocity", "intelligence", "neural", "network", "transformer", "latency", "throughput", "compute", "scaling", "inference", "tokens", "stream", "logic", "kinetic", "flow"];
+
+function createToken() {
+  const word = words[Math.floor(Math.random() * words.length)];
+  return {
+    text: word,
+    x: -50,
+    y: Math.random() * (canvas.height - 40) + 20,
+    vx: (speed / 10) * 2 + 1,
+    alpha: 1,
+    color: `hsl(${Math.random() * 60 + 190}, 80%, 60%)`
+  };
+}
+
+function animate(time) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  // Speed control logic: generate tokens based on 'speed' (tokens/s)
+  const interval = 1000 / speed;
+  if (time - lastTokenTime > interval) {
+    tokens.push(createToken());
+    lastTokenTime = time;
+  }
+  
+  ctx.font = '14px "Geist Mono", monospace';
+  
+  for (let i = tokens.length - 1; i >= 0; i--) {
+    let t = tokens[i];
+    t.x += t.vx;
+    t.alpha -= 0.005;
+    
+    ctx.fillStyle = t.color;
+    ctx.globalAlpha = Math.max(0, t.alpha);
+    ctx.fillText(t.text, t.x, t.y);
+    
+    if (t.x > canvas.width || t.alpha <= 0) {
+      tokens.splice(i, 1);
+    }
+  }
+  
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(animate);
+}
+
+requestAnimationFrame(animate);
+
+window.addEventListener('resize', () => {
+  canvas.width = container.clientWidth || window.innerWidth;
+  canvas.height = container.clientHeight || window.innerHeight;
+});
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_25 -->
+</body>
+</html>
