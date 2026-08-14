@@ -4,9 +4,9 @@
     "id": "meta-llama/llama-3.1-8b-instruct:free",
     "name": "Llama 3.1 8B (Free)",
     "icon": "hub",
-    "efficiencyScore": 98.5,
-    "tps": 337.5,
-    "latencyMs": 245,
+    "efficiencyScore": 99.4,
+    "tps": 321.1,
+    "latencyMs": 250,
     "cost": "$0.00",
     "tier": "Elite",
     "tierColor": "blue",
@@ -17,9 +17,9 @@
     "id": "qwen/qwen-2-72b-instruct:free",
     "name": "Qwen 2 72B (Free)",
     "icon": "language",
-    "efficiencyScore": 98.4,
-    "tps": 137.4,
-    "latencyMs": 309,
+    "efficiencyScore": 97.8,
+    "tps": 122.5,
+    "latencyMs": 353,
     "cost": "$0.00",
     "tier": "Elite",
     "tierColor": "cyan",
@@ -30,13 +30,13 @@
     "id": "google/gemma-2-9b-it:free",
     "name": "Gemma 2 9B (Free)",
     "icon": "memory",
-    "efficiencyScore": 95.5,
-    "tps": 123.6,
-    "latencyMs": 319,
+    "efficiencyScore": 97,
+    "tps": 130.6,
+    "latencyMs": 318,
     "cost": "$0.00",
     "tier": "High",
     "tierColor": "pink",
-    "trend": "trending_up"
+    "trend": "trending_down"
   },
   {
     "rank": 4,
@@ -44,25 +44,25 @@
     "name": "Mistral 7B (Free)",
     "icon": "storm",
     "efficiencyScore": 93.7,
-    "tps": 103.4,
-    "latencyMs": 354,
+    "tps": 97.6,
+    "latencyMs": 362,
     "cost": "$0.00",
     "tier": "High",
     "tierColor": "orange",
-    "trend": "horizontal_rule"
+    "trend": "trending_up"
   },
   {
     "rank": 5,
     "id": "microsoft/phi-3-mini-128k-instruct:free",
     "name": "Phi-3 Mini (Free)",
     "icon": "window",
-    "efficiencyScore": 93.7,
-    "tps": 104.9,
-    "latencyMs": 361,
+    "efficiencyScore": 92.9,
+    "tps": 89.9,
+    "latencyMs": 345,
     "cost": "$0.00",
     "tier": "High",
     "tierColor": "indigo",
-    "trend": "horizontal_rule"
+    "trend": "trending_down"
   },
   {
     "rank": 6,
@@ -70,11 +70,11 @@
     "name": "Zephyr 7B (Free)",
     "icon": "air",
     "efficiencyScore": 92,
-    "tps": 83.7,
-    "latencyMs": 362,
+    "tps": 86.3,
+    "latencyMs": 339,
     "cost": "$0.00",
     "tier": "Standard",
     "tierColor": "teal",
-    "trend": "trending_down"
+    "trend": "trending_up"
   }
 ]
