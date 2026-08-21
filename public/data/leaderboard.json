@@ -4,77 +4,77 @@
     "id": "meta-llama/llama-3.1-8b-instruct:free",
     "name": "Llama 3.1 8B (Free)",
     "icon": "hub",
-    "efficiencyScore": 99.5,
-    "tps": 352.1,
-    "latencyMs": 228,
+    "efficiencyScore": 99.9,
+    "tps": 348.5,
+    "latencyMs": 219,
     "cost": "$0.00",
     "tier": "Elite",
     "tierColor": "blue",
-    "trend": "horizontal_rule"
+    "trend": "trending_up"
   },
   {
     "rank": 2,
     "id": "qwen/qwen-2-72b-instruct:free",
     "name": "Qwen 2 72B (Free)",
     "icon": "language",
-    "efficiencyScore": 97.7,
-    "tps": 139.6,
-    "latencyMs": 330,
+    "efficiencyScore": 97.8,
+    "tps": 141.5,
+    "latencyMs": 331,
     "cost": "$0.00",
     "tier": "Elite",
     "tierColor": "cyan",
-    "trend": "trending_up"
+    "trend": "horizontal_rule"
   },
   {
     "rank": 3,
     "id": "google/gemma-2-9b-it:free",
     "name": "Gemma 2 9B (Free)",
     "icon": "memory",
-    "efficiencyScore": 96,
-    "tps": 131,
-    "latencyMs": 356,
+    "efficiencyScore": 95.5,
+    "tps": 112.5,
+    "latencyMs": 368,
     "cost": "$0.00",
     "tier": "High",
     "tierColor": "pink",
-    "trend": "trending_up"
+    "trend": "trending_down"
   },
   {
     "rank": 4,
     "id": "mistralai/mistral-7b-instruct:free",
     "name": "Mistral 7B (Free)",
     "icon": "storm",
-    "efficiencyScore": 93.8,
-    "tps": 114.8,
-    "latencyMs": 332,
+    "efficiencyScore": 94.2,
+    "tps": 106,
+    "latencyMs": 352,
     "cost": "$0.00",
     "tier": "High",
     "tierColor": "orange",
-    "trend": "trending_down"
+    "trend": "horizontal_rule"
   },
   {
     "rank": 5,
     "id": "microsoft/phi-3-mini-128k-instruct:free",
     "name": "Phi-3 Mini (Free)",
     "icon": "window",
-    "efficiencyScore": 93.2,
-    "tps": 95.7,
-    "latencyMs": 358,
+    "efficiencyScore": 93.5,
+    "tps": 91,
+    "latencyMs": 379,
     "cost": "$0.00",
     "tier": "High",
     "tierColor": "indigo",
-    "trend": "horizontal_rule"
+    "trend": "trending_down"
   },
   {
     "rank": 6,
     "id": "huggingfaceh4/zephyr-7b-beta:free",
     "name": "Zephyr 7B (Free)",
     "icon": "air",
-    "efficiencyScore": 90.9,
-    "tps": 80.1,
-    "latencyMs": 384,
+    "efficiencyScore": 91.2,
+    "tps": 75.6,
+    "latencyMs": 383,
     "cost": "$0.00",
     "tier": "Standard",
     "tierColor": "teal",
-    "trend": "trending_down"
+    "trend": "trending_up"
   }
 ]
