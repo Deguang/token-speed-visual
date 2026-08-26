@@ -5,76 +5,76 @@
     "name": "Llama 3.1 8B (Free)",
     "icon": "hub",
     "efficiencyScore": 99.5,
-    "tps": 381.5,
-    "latencyMs": 216,
+    "tps": 326.8,
+    "latencyMs": 240,
     "cost": "$0.00",
     "tier": "Elite",
     "tierColor": "blue",
-    "trend": "horizontal_rule"
+    "trend": "trending_down"
   },
   {
     "rank": 2,
     "id": "qwen/qwen-2-72b-instruct:free",
     "name": "Qwen 2 72B (Free)",
     "icon": "language",
-    "efficiencyScore": 97.4,
-    "tps": 139.6,
-    "latencyMs": 335,
+    "efficiencyScore": 97,
+    "tps": 132.8,
+    "latencyMs": 332,
     "cost": "$0.00",
     "tier": "Elite",
     "tierColor": "cyan",
-    "trend": "horizontal_rule"
+    "trend": "trending_down"
   },
   {
     "rank": 3,
     "id": "google/gemma-2-9b-it:free",
     "name": "Gemma 2 9B (Free)",
     "icon": "memory",
-    "efficiencyScore": 95.8,
-    "tps": 130,
-    "latencyMs": 352,
+    "efficiencyScore": 95.7,
+    "tps": 133.3,
+    "latencyMs": 335,
     "cost": "$0.00",
     "tier": "High",
     "tierColor": "pink",
-    "trend": "horizontal_rule"
+    "trend": "trending_down"
   },
   {
     "rank": 4,
     "id": "mistralai/mistral-7b-instruct:free",
     "name": "Mistral 7B (Free)",
     "icon": "storm",
-    "efficiencyScore": 95.1,
-    "tps": 115.8,
-    "latencyMs": 354,
+    "efficiencyScore": 95.2,
+    "tps": 111.2,
+    "latencyMs": 356,
     "cost": "$0.00",
     "tier": "High",
     "tierColor": "orange",
-    "trend": "trending_down"
+    "trend": "trending_up"
   },
   {
     "rank": 5,
     "id": "microsoft/phi-3-mini-128k-instruct:free",
     "name": "Phi-3 Mini (Free)",
     "icon": "window",
-    "efficiencyScore": 93.7,
-    "tps": 96.9,
-    "latencyMs": 372,
+    "efficiencyScore": 93.2,
+    "tps": 95.2,
+    "latencyMs": 362,
     "cost": "$0.00",
     "tier": "High",
     "tierColor": "indigo",
-    "trend": "trending_up"
+    "trend": "horizontal_rule"
   },
   {
     "rank": 6,
     "id": "huggingfaceh4/zephyr-7b-beta:free",
     "name": "Zephyr 7B (Free)",
     "icon": "air",
-    "efficiencyScore": 90.6,
-    "tps": 93.3,
-    "latencyMs": 355,
+    "efficiencyScore": 92.4,
+    "tps": 90.7,
+    "latencyMs": 343,
     "cost": "$0.00",
     "tier": "Standard",
     "tierColor": "teal",
-    "trend": "trending_down"
+    "trend": "horizontal_rule"
   }
 ]
