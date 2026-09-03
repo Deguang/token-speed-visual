@@ -5,8 +5,8 @@
     "name": "Llama 3.1 8B (Free)",
     "icon": "hub",
     "efficiencyScore": 99.1,
-    "tps": 339.5,
-    "latencyMs": 249,
+    "tps": 366.8,
+    "latencyMs": 233,
     "cost": "$0.00",
     "tier": "Elite",
     "tierColor": "blue",
@@ -18,51 +18,51 @@
     "name": "Qwen 2 72B (Free)",
     "icon": "language",
     "efficiencyScore": 96.9,
-    "tps": 141.2,
-    "latencyMs": 307,
+    "tps": 135.9,
+    "latencyMs": 343,
     "cost": "$0.00",
     "tier": "Elite",
     "tierColor": "cyan",
-    "trend": "horizontal_rule"
+    "trend": "trending_down"
   },
   {
     "rank": 3,
     "id": "google/gemma-2-9b-it:free",
     "name": "Gemma 2 9B (Free)",
     "icon": "memory",
-    "efficiencyScore": 95.7,
-    "tps": 122.1,
-    "latencyMs": 335,
+    "efficiencyScore": 95.4,
+    "tps": 133.6,
+    "latencyMs": 354,
     "cost": "$0.00",
     "tier": "High",
     "tierColor": "pink",
-    "trend": "trending_up"
+    "trend": "trending_down"
   },
   {
     "rank": 4,
     "id": "mistralai/mistral-7b-instruct:free",
     "name": "Mistral 7B (Free)",
     "icon": "storm",
-    "efficiencyScore": 94.8,
-    "tps": 99.4,
-    "latencyMs": 326,
+    "efficiencyScore": 94.1,
+    "tps": 123.9,
+    "latencyMs": 320,
     "cost": "$0.00",
     "tier": "High",
     "tierColor": "orange",
-    "trend": "horizontal_rule"
+    "trend": "trending_up"
   },
   {
     "rank": 5,
     "id": "microsoft/phi-3-mini-128k-instruct:free",
     "name": "Phi-3 Mini (Free)",
     "icon": "window",
-    "efficiencyScore": 93.2,
-    "tps": 107.3,
-    "latencyMs": 342,
+    "efficiencyScore": 93.8,
+    "tps": 98.9,
+    "latencyMs": 355,
     "cost": "$0.00",
     "tier": "High",
     "tierColor": "indigo",
-    "trend": "trending_up"
+    "trend": "horizontal_rule"
   },
   {
     "rank": 6,
@@ -70,11 +70,11 @@
     "name": "Zephyr 7B (Free)",
     "icon": "air",
     "efficiencyScore": 91.2,
-    "tps": 102.3,
-    "latencyMs": 366,
+    "tps": 102,
+    "latencyMs": 361,
     "cost": "$0.00",
     "tier": "Standard",
     "tierColor": "teal",
-    "trend": "horizontal_rule"
+    "trend": "trending_down"
   }
 ]
