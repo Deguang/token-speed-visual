@@ -5,21 +5,21 @@
     "name": "Llama 3.1 8B (Free)",
     "icon": "hub",
     "efficiencyScore": 99.5,
-    "tps": 378,
-    "latencyMs": 189,
+    "tps": 379.1,
+    "latencyMs": 210,
     "cost": "$0.00",
     "tier": "Elite",
     "tierColor": "blue",
-    "trend": "horizontal_rule"
+    "trend": "trending_up"
   },
   {
     "rank": 2,
     "id": "qwen/qwen-2-72b-instruct:free",
     "name": "Qwen 2 72B (Free)",
     "icon": "language",
-    "efficiencyScore": 98,
-    "tps": 122,
-    "latencyMs": 338,
+    "efficiencyScore": 97.6,
+    "tps": 135.9,
+    "latencyMs": 345,
     "cost": "$0.00",
     "tier": "Elite",
     "tierColor": "cyan",
@@ -31,50 +31,50 @@
     "name": "Gemma 2 9B (Free)",
     "icon": "memory",
     "efficiencyScore": 95.6,
-    "tps": 126.5,
-    "latencyMs": 353,
+    "tps": 126.4,
+    "latencyMs": 352,
     "cost": "$0.00",
     "tier": "High",
     "tierColor": "pink",
-    "trend": "horizontal_rule"
+    "trend": "trending_down"
   },
   {
     "rank": 4,
     "id": "mistralai/mistral-7b-instruct:free",
     "name": "Mistral 7B (Free)",
     "icon": "storm",
-    "efficiencyScore": 94.5,
-    "tps": 102.3,
-    "latencyMs": 369,
+    "efficiencyScore": 94.4,
+    "tps": 110.3,
+    "latencyMs": 340,
     "cost": "$0.00",
     "tier": "High",
     "tierColor": "orange",
-    "trend": "trending_up"
+    "trend": "horizontal_rule"
   },
   {
     "rank": 5,
     "id": "microsoft/phi-3-mini-128k-instruct:free",
     "name": "Phi-3 Mini (Free)",
     "icon": "window",
-    "efficiencyScore": 92.3,
-    "tps": 103.3,
-    "latencyMs": 360,
+    "efficiencyScore": 92.2,
+    "tps": 110.3,
+    "latencyMs": 352,
     "cost": "$0.00",
     "tier": "High",
     "tierColor": "indigo",
-    "trend": "trending_down"
+    "trend": "trending_up"
   },
   {
     "rank": 6,
     "id": "huggingfaceh4/zephyr-7b-beta:free",
     "name": "Zephyr 7B (Free)",
     "icon": "air",
-    "efficiencyScore": 90.7,
-    "tps": 79,
-    "latencyMs": 385,
+    "efficiencyScore": 92,
+    "tps": 86.5,
+    "latencyMs": 363,
     "cost": "$0.00",
     "tier": "Standard",
     "tierColor": "teal",
-    "trend": "trending_down"
+    "trend": "trending_up"
   }
 ]
